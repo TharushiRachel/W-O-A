@@ -1,0 +1,150 @@
+<!--begin::Menu wrapper-->
+<div id="kt_app_sidebar_menu_wrapper" class="app-sidebar-wrapper hover-scroll-overlay-y my-5" data-kt-scroll="true"
+     data-kt-scroll-activate="true" data-kt-scroll-height="auto"
+     data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer"
+     data-kt-scroll-wrappers="#kt_app_sidebar_menu" data-kt-scroll-offset="5px" data-kt-scroll-save-state="true">
+  <!--begin::Menu-->
+  <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu" data-kt-menu="true"
+       data-kt-menu-expand="false">
+    <!-- Dashboard -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLink="/dashboard" routerLinkActive="active"><span class="menu-icon">
+          <span [inlineSVG]="'./assets/media/icons/graphs/gra001.svg'" class="svg-icon svg-icon-2"></span>
+        </span>
+        <span class="menu-title" translate="MENU.DASHBOARD"></span></a>
+    </div>
+
+    <!-- Separator -->
+    <div class="menu-item">
+      <div class="menu-content pt-8 pb-2">
+        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Data</span>
+      </div>
+    </div>
+
+    <!-- Pages -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLink="/error/404" routerLinkActive="here show">
+        <span class="menu-icon">
+          <span [inlineSVG]="'./assets/media/icons/technology/teh002.svg'" class="svg-icon svg-icon-2"></span>
+        </span>
+        <span class="menu-title">User</span>
+      </a>
+    </div>
+
+    <!-- Accounts -->
+    <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="here show">
+      <span class="menu-link"><span class="menu-icon"><span class="svg-icon svg-icon-2"
+                                                            [inlineSVG]="'./assets/media/icons/communication/com014.svg'"></span></span><span class="menu-title"
+                                                                                                                                                      data-link="/crafted/account">Groups</span><span class="menu-arrow"></span></span>
+      <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLinkActive="active" routerLink="/crafted/account/overview"><span
+            class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
+            class="menu-title">Groups</span></a>
+        </div>
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLinkActive="active" routerLink="/crafted/account/settings"><span
+            class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
+            class="menu-title">Sub Groups</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!--    On-boarding Content-->
+
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLink="/dashboard" routerLinkActive="here show">
+        <span class="menu-icon">
+          <span [inlineSVG]="'./assets/media/icons/files/fil014.svg'" class="svg-icon svg-icon-2"></span>
+        </span>
+        <span class="menu-title">On-boarding Content</span>
+      </a>
+    </div>
+
+    <!-- For You -->
+    <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="here show">
+      <span class="menu-link"><span class="menu-icon"><span class="svg-icon svg-icon-2"
+                                                            [inlineSVG]="'./assets/media/icons/abstract/abs027.svg'"></span></span><span class="menu-title"
+                                                                                                                                                data-link="/error">For You</span><span class="menu-arrow"></span></span>
+      <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/error/404" routerLinkActive="active"><span
+            class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Collection List</span></a>
+        </div>
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/error/500" routerLinkActive="active"><span
+            class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Messages List</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weight In -->
+    <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="here show">
+      <span class="menu-link"><span class="menu-icon"><span class="svg-icon svg-icon-2"
+                                                            [inlineSVG]="'./assets/media/icons/layouts/lay001.svg'"></span></span><span class="menu-title"
+                                                                                                                                                data-link="/error">Weight In Messages</span><span class="menu-arrow"></span></span>
+      <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/error/404" routerLinkActive="active"><span
+            class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Collection List</span></a>
+        </div>
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/error/500" routerLinkActive="active"><span
+            class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Messages List</span></a>
+        </div>
+      </div>
+    </div>
+
+
+    <!--Questionnaires -->
+    <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="here show">
+      <span class="menu-link"><span class="menu-icon"><span class="svg-icon svg-icon-2"
+                                                            [inlineSVG]="'./assets/media/icons/general/gen046.svg'"></span></span><span class="menu-title"
+                                                                                                                                                data-link="/error">Questionnaires</span><span class="menu-arrow"></span></span>
+      <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/error/404" routerLinkActive="active"><span
+            class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Verbal Questionnaires</span></a>
+        </div>
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/error/500" routerLinkActive="active"><span
+            class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Picture Questionnaires</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Separator -->
+    <div class="menu-item">
+      <div class="menu-content pt-8 pb-2">
+        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Reports</span>
+      </div>
+    </div>
+
+    <!-- weight reports -->
+
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLink="/dashboard" routerLinkActive="here show">
+        <span class="menu-icon">
+          <span [inlineSVG]="'./assets/media/icons/medicine/med001.svg'" class="svg-icon svg-icon-2"></span>
+        </span>
+        <span class="menu-title">Weight Reports</span>
+      </a>
+    </div>
+
+
+    <!-- user reports -->
+
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLink="/dashboard" routerLinkActive="here show">
+        <span class="menu-icon">
+          <span [inlineSVG]="'./assets/media/icons/graphs/gra003.svg'" class="svg-icon svg-icon-2"></span>
+        </span>
+        <span class="menu-title">User Reports</span>
+      </a>
+    </div>
+
+
+  </div>
+  <!--end::Menu-->
+</div>
+<!--end::Menu wrapper-->
