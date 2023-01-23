@@ -1,0 +1,82 @@
+image: node:16
+pipelines:
+  branches:
+    feature/*:
+      -   step:
+            name: Installing & Running Tests
+            caches:
+              - node
+            script:
+              - npm install
+            artifacts:
+              - node_modules/**
+      -   step:
+            name: Build
+            trigger: manual
+            caches:
+              - node
+            script:
+              - sed -i -e 'https://qa-sinqueapi.efshipoci.com/'
+              - npm install gulp -g
+              - gulp build --prod
+            artifacts:
+              - build/**
+      -   step:
+            name: Deploy to S3 & Invalidate Cloudfront Cache
+            deployment: staging-qa
+            script:
+              -   pipe: atlassian/aws-s3-deploy:0.2.4
+                  variables:
+                    AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                    AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                    AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                    S3_BUCKET: $S3_BUCKET
+                    ACL: "public-read"
+                    LOCAL_PATH: "build"
+              -   pipe: atlassian/aws-cloudfront-invalidate:0.1.1
+                  variables:
+                    AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                    AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                    AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                    DISTRIBUTION_ID: $DISTRIBUTION_ID
+
+    release/**:
+      -   step:
+            name: Installing & Running Tests
+            caches:
+              - node
+            script:
+              - npm install
+            artifacts:
+              - node_modules/**
+      -   step:
+            name: Build
+            trigger: manual
+            caches:
+              - node
+            script:
+              - sed -i -e 'https://qa-sinqueapi.efshipoci.com/'
+              - npm install gulp -g
+              - gulp build --prod
+            artifacts:
+              - build/**
+      -   step:
+            name: Deploy to S3 & Invalidate Cloudfront Cache
+            deployment: staging-uat
+            script:
+              -   pipe: atlassian/aws-s3-deploy:0.2.4
+                  variables:
+                    AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                    AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                    AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                    S3_BUCKET: $S3_BUCKET
+                    ACL: "public-read"
+                    LOCAL_PATH: "build"
+              -   pipe: atlassian/aws-cloudfront-invalidate:0.1.1
+                  variables:
+                    AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                    AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                    AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                    DISTRIBUTION_ID: $DISTRIBUTION_ID
+
+
