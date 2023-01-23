@@ -16,7 +16,7 @@ pipelines:
             caches:
               - node
             script:
-              - sed -i -e 'https://qa-sinqueapi.efshipoci.com/'
+              - sed -i -e 'https://qa-sinqueapi.efshipoci.com'
               - npm install gulp -g
               - gulp build --prod
             artifacts:
@@ -55,7 +55,7 @@ pipelines:
             caches:
               - node
             script:
-              - sed -i -e 'https://qa-sinqueapi.efshipoci.com/'
+              - sed -i -e 'https://qa-sinqueapi.efshipoci.com'
               - npm install gulp -g
               - gulp build --prod
             artifacts:
