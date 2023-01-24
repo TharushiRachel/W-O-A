@@ -7,4 +7,9 @@ export const environment = {
   production: false,
   API_URL: 'http://localhost:8088',
   APP_URL: 'http://localhost:4200',
+  appVersion: 'v8.1.6',
+  USERDATA_KEY: 'authf649fc9a5f55',
+  isMockEnabled: true,
+  apiUrl: 'api',
+  appThemeName: 'Sinque',
 };
