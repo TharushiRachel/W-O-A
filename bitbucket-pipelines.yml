@@ -4,23 +4,19 @@ pipelines:
     feature/*:
       -   step:
             name: Installing & Running Tests
-            caches:
-              - node
             script:
+              - npm cache clean -f
               - npm install
             artifacts:
               - node_modules/**
       -   step:
             name: Build
             trigger: manual
-            caches:
-              - node
             script:
               - sed -i -e 's%$RL_URL%'"https://qa-sinqueapi.efshipoci.com"'%g' ./src/environments/environment.prod.ts
-              - npm install gulp -g
-              - gulp build --prod
+              - npm run build
             artifacts:
-              - build/**
+              - dist/**
       -   step:
             name: Deploy to S3 & Invalidate Cloudfront Cache
             deployment: staging-qa
@@ -32,7 +28,7 @@ pipelines:
                     AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
                     S3_BUCKET: $S3_BUCKET
                     ACL: "public-read"
-                    LOCAL_PATH: "build"
+                    LOCAL_PATH: "dist"
               -   pipe: atlassian/aws-cloudfront-invalidate:0.1.1
                   variables:
                     AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
@@ -43,23 +39,19 @@ pipelines:
     release/**:
       -   step:
             name: Installing & Running Tests
-            caches:
-              - node
             script:
+              - npm cache clean -f
               - npm install
             artifacts:
               - node_modules/**
       -   step:
             name: Build
             trigger: manual
-            caches:
-              - node
             script:
               - sed -i -e 'https://qa-sinqueapi.efshipoci.com'
-              - npm install gulp -g
-              - gulp build --prod
+              - npm run build
             artifacts:
-              - build/**
+              - dist/**
       -   step:
             name: Deploy to S3 & Invalidate Cloudfront Cache
             deployment: staging-uat
@@ -71,7 +63,7 @@ pipelines:
                     AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
                     S3_BUCKET: $S3_BUCKET
                     ACL: "public-read"
-                    LOCAL_PATH: "build"
+                    LOCAL_PATH: "dist"
               -   pipe: atlassian/aws-cloudfront-invalidate:0.1.1
                   variables:
                     AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
