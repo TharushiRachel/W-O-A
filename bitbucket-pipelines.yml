@@ -13,7 +13,7 @@ pipelines:
             name: Build
             trigger: manual
             script:
-              - sed -i -e 's%$RL_URL%'"https://qa-sinqueapi.efshipoci.com"'%g' ./src/environments/environment.prod.ts
+              - sed -i -e 's%$SINQUE_URL%'"https://qa-sinqueapi.efshipoci.com"'%g' ./src/environments/environment.prod.ts
               - npm run build
             artifacts:
               - dist/**
@@ -48,7 +48,7 @@ pipelines:
             name: Build
             trigger: manual
             script:
-              - sed -i -e 's%$RL_URL%'"https://qa-sinqueapi.efshipoci.com"'%g' ./src/environments/environment.prod.ts
+              - sed -i -e 's%$SINQUE_URL%'"https://qa-sinqueapi.efshipoci.com"'%g' ./src/environments/environment.prod.ts
               - npm run build
             artifacts:
               - dist/**
@@ -83,7 +83,7 @@ pipelines:
           name: Build
           trigger: manual
           script:
-            - sed -i -e 's%$RL_URL%'"https://qa-sinqueapi.efshipoci.com"'%g' ./src/environments/environment.prod.ts
+            - sed -i -e 's%$SINQUE_URL%'"https://qa-sinqueapi.efshipoci.com"'%g' ./src/environments/environment.prod.ts
             - npm run build
           artifacts:
             - dist/**
