@@ -54,7 +54,7 @@ pipelines:
               - dist/**
       -   step:
             name: Deploy to S3 & Invalidate Cloudfront Cache
-            deployment: staging-uat
+            deployment: staging-qa
             script:
               -   pipe: atlassian/aws-s3-deploy:0.2.4
                   variables:
@@ -89,7 +89,7 @@ pipelines:
             - dist/**
       - step:
           name: Deploy to S3 & Invalidate Cloudfront Cache
-          deployment: staging-uat
+          deployment: staging-qa
           script:
             - pipe: atlassian/aws-s3-deploy:0.2.4
               variables:
