@@ -1,0 +1,26 @@
+<form (ngSubmit)="onSubmit()" autocomplete="off" class="" ngForm="searchContractForm"
+      novalidate style="width: 100%;">
+  <div [formGroup]="contractType" class="row">
+    <div class="col-md-2">
+      <mat-checkbox formControlName="active">Active</mat-checkbox>
+    </div>
+
+    <div class="col-md-2">
+      <mat-checkbox formControlName="inactive">Inactive</mat-checkbox>
+    </div>
+
+    <div class="col-md-3">
+      <mat-checkbox formControlName="numberOfDay">Less Than 60 Days To Expire</mat-checkbox>
+    </div>
+    <div class="col-md-1">
+      <button (click)="onSubmit()" class="float-right mt-2 pr-3" color="primary" mat-button mat-raised-button
+              type="button">Search
+      </button>
+    </div>
+    <div class="col-md-1">
+      <button (click)="onSubmit(true)" class="float-right mt-2 mr-2" color="default" mat-button mat-raised-button
+              type="button">Clear
+      </button>
+    </div>
+  </div>
+</form>
