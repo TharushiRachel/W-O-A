@@ -48,7 +48,7 @@ pipelines:
             name: Build
             trigger: manual
             script:
-              - sed -i -e 'https://qa-sinqueapi.efshipoci.com'
+              - sed -i -e 's%$RL_URL%'"https://qa-sinqueapi.efshipoci.com"'%g' ./src/environments/environment.prod.ts
               - npm run build
             artifacts:
               - dist/**
@@ -83,7 +83,7 @@ pipelines:
           name: Build
           trigger: manual
           script:
-            - sed -i -e 'https://qa-sinqueapi.efshipoci.com'
+            - sed -i -e 's%$RL_URL%'"https://qa-sinqueapi.efshipoci.com"'%g' ./src/environments/environment.prod.ts
             - npm run build
           artifacts:
             - dist/**
