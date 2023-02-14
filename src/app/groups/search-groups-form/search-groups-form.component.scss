@@ -1,8 +1,22 @@
 .mat-form-field-outline {
-  background-color: #fff !important;
+  // background-color: #fff !important;
   border-radius: 5px;
 }
 
 .form-group {
   padding: 4px 30px !important;
+}
+
+.sec-search-form{
+  width: 1000px;
+  box-shadow: none;
+}
+
+.search-bar-sec{
+  border-radius: 20px;
+  width:500px;
+}
+
+.search-sec-btn{
+  left:200px;
 }
