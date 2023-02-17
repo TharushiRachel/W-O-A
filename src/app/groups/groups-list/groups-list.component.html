@@ -21,7 +21,9 @@
         <!-- Position Column -->
 
         <ng-container matColumnDef="id">
-          <th *matHeaderCellDef mat-header-cell> Group ID</th>
+          <div class="row-header">
+          <th *matHeaderCellDef mat-header-cell  class="table-sec"> Group ID</th>
+        </div>
           <td *matCellDef="let group" mat-cell> {{group.id}} </td>
         </ng-container>
 
