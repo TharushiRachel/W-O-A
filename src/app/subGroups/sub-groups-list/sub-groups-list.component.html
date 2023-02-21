@@ -1,7 +1,7 @@
 <div class="card mb-5 mb-xl-10" id="groups-list-view">
   <div class="card-header cursor-pointer">
     <div class="card-title m-0">
-      <h3 class="fw-bolder m-0">Groups</h3>
+      <h3 class="fw-bolder m-0">Sub Groups</h3>
     </div>
   </div>
 
@@ -9,14 +9,14 @@
 
   <div class="col-md-1">
     <button class="float-right mt-2 pr-3 add-group-btn" color="primary" mat-button mat-raised-button
-            type="button"><mat-icon>add</mat-icon>  Add New Group
+            type="button"><mat-icon>add</mat-icon>  Add New Sub Group
     </button>
   </div>
 
   <div class="card">
     <div class="card-body p-9">
       <div class="mat-elevation-z5">
-        <search-groups-form></search-groups-form>
+        <search-sub-groups-form></search-sub-groups-form>
       </div>
     </div>
   </div>
@@ -26,57 +26,48 @@
 
       <table [dataSource]="dataSource" mat-table>
 
-        <!-- Position Column -->
-
         <ng-container matColumnDef="id">
           <div class="row-header">
-          <th *matHeaderCellDef mat-header-cell  class="table-sec"> Group ID</th>
-        </div>
-          <td *matCellDef="let group" mat-cell> {{group.id}} </td>
+            <th *matHeaderCellDef mat-header-cell class="table-sec">Sub Group ID</th>
+          </div>
+          <td *matCellDef="let subGroup" mat-cell> {{subGroup.id}} </td>
         </ng-container>
 
         <ng-container matColumnDef="name">
-          <th *matHeaderCellDef mat-header-cell> Group Name</th>
-          <td *matCellDef="let group" mat-cell> {{group.name}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="contract_status">
-          <th *matHeaderCellDef mat-header-cell> Contract Status</th>
-          <td *matCellDef="let group" mat-cell>
-            <mat-chip *ngIf="group.contract_status === true" class="text-success">
-              Active
-            </mat-chip>
-            <mat-chip *ngIf="group.contract_status === false" class="text-warning">
-              Inactive
-            </mat-chip>
-          </td>
+          <th *matHeaderCellDef mat-header-cell> Sub Group Name</th>
+          <td *matCellDef="let subGroup" mat-cell> {{subGroup.name}} </td>
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="company_name">
-          <th *matHeaderCellDef mat-header-cell> Company Name</th>
-          <td *matCellDef="let group" mat-cell> {{group.company_name}} </td>
+        <ng-container matColumnDef="groups">
+          <th *matHeaderCellDef mat-header-cell> Groups</th>
+          <td *matCellDef="let subGroup" mat-cell> {{subGroup.groups}} </td>
         </ng-container>
 
         <!--        &lt;!&ndash; Weight Column &ndash;&gt;-->
-        <ng-container matColumnDef="sinque_owner">
-          <th *matHeaderCellDef mat-header-cell> Sinque Owner</th>
-          <td *matCellDef="let group" mat-cell> {{group.sinque_owner}} </td>
+        <ng-container matColumnDef="contact">
+          <th *matHeaderCellDef mat-header-cell> Contact</th>
+          <td *matCellDef="let subGroup" mat-cell> {{subGroup.contact}} </td>
         </ng-container>
 
         <!-- Symbol Column -->
-        <ng-container matColumnDef="subgroups">
-          <th *matHeaderCellDef mat-header-cell> Subgroups</th>
-          <td *matCellDef="let group" mat-cell> {{group.subgroups}} </td>
+        <ng-container matColumnDef="phone">
+          <th *matHeaderCellDef mat-header-cell> phone</th>
+          <td *matCellDef="let subGroup" mat-cell> {{subGroup.phone}} </td>
         </ng-container>
 
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="email">
+          <th *matHeaderCellDef mat-header-cell> email</th>
+          <td *matCellDef="let subGroup" mat-cell> {{subGroup.email}} </td>
+        </ng-container>
 
         <ng-container matColumnDef="actions">
           <th *matHeaderCellDef mat-header-cell> Actions</th>
-          <td mat-cell *matCellDef="let group">
+          <td mat-cell *matCellDef="let subGroup">
             <div class="ActionBtnContent ">
               <a
-                [routerLink]="['edit', group.id]"
+                [routerLink]="['edit', subGroup.id]"
                 class="OutlineBtn OutLineBtnYellow"
                 color="primary"
                 matTooltip="Edit Contract"
@@ -85,9 +76,9 @@
               </a>&nbsp;
 
               <button
-                (click)="deleteGroup(group.id)"
+                (click)="deleteSubGroup(subGroup.id)"
                 class="OutlineBtn OutLineRed"
-                matTooltip="Delete Contract"
+                matTooltip="Delete Sub Group"
                 type="button"
               >
                 <mat-icon>delete</mat-icon>

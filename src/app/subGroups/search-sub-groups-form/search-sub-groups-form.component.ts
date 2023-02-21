@@ -2,14 +2,13 @@ import {Component, EventEmitter, HostListener, Input, OnInit, Output} from '@ang
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'search-groups-form',
-  templateUrl: './search-groups-form.component.html',
-  styleUrls: ['./search-groups-form.component.scss']
+  selector: 'search-sub-groups-form',
+  templateUrl: './search-sub-groups-form.component.html',
+  styleUrls: ['./search-sub-groups-form.component.scss']
 })
-export class SearchGroupsFormComponent implements OnInit {
+export class SearchSubGroupsFormComponent implements OnInit {
   @Input()
-  searchGroupsForm: FormGroup;
+  SearchSubGroupsForm: FormGroup;
 
 
   @Output()
@@ -18,14 +17,15 @@ export class SearchGroupsFormComponent implements OnInit {
   @Output()
   refresh = new EventEmitter<any>();
 
+  constructor(public _formBuilder: FormBuilder) {
+  }
+
 
   @HostListener('document:click', ['$event']) documentClickEvent($event: MouseEvent) {
   }
 
   ngOnInit(): void {
 
-    //this.bindCompanyTypes(this.companyTypes)
-    //this.setValues(this.companyTypes,this.searchCompanyForm.get('company_types').value)
   }
 
   public onSubmit(clear = false) {
