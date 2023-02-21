@@ -7,7 +7,7 @@ import {MatTableDataSource} from '@angular/material/table';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './groups-list.component.html',
-  styleUrls: ['./groups-list.component.html'],
+  styleUrls: ['./groups-list.component.scss'],
 })
 export class GroupsListComponent {
   modalConfig: ModalConfig = {
