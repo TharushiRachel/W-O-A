@@ -1,0 +1,30 @@
+<form (ngSubmit)="onSubmit()" autocomplete="off" class="" ngForm="searchProvidersForm"
+      novalidate style="width: 100%;">
+  <div class="row sec-search-form">
+    <div class="col-md-4">
+      <div>
+        <mat-form-field appearance="outline" class="search-bar-sec">
+          <input matInput placeholder="Search Provider" />
+        </mat-form-field>
+      </div>
+    </div>
+    <!-- <div class="col-md-2">
+      <mat-checkbox formControlName="active">Active</mat-checkbox>
+    </div>
+
+    <div class="col-md-2">
+      <mat-checkbox formControlName="inactive">Inactive</mat-checkbox>
+    </div> -->
+
+    <div class="col-md-1">
+      <button (click)="onSubmit()" class="float-right mt-2 pr-3 search-sec-btn" color="primary" mat-button mat-raised-button
+              type="button"><mat-icon>search</mat-icon>  Search
+      </button>
+    </div>
+    <!-- <div class="col-md-1">
+      <button (click)="onSubmit(true)" class="float-right mt-2 mr-2" color="default" mat-button mat-raised-button
+              type="button">Clear
+      </button>
+    </div> -->
+  </div>
+</form>

@@ -27,6 +27,11 @@ const Routing: Routes = [
       import('./subGroups/sub-groups-list/sub-groups-list.module').then((m) => m.SubGroupsListModule),
   },
   {
+    path: 'providers',
+    loadChildren: () =>
+      import('./providers/providers-list/providers-list.module').then((m) => m.ProvidersListModule),
+  },
+  {
     path: 'account',
     loadChildren: () =>
       import('./modules/account/account.module').then((m) => m.AccountModule),
