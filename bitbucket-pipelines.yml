@@ -1,7 +1,7 @@
 image: node:16
 pipelines:
   branches:
-    feature/*:
+    '{release/**,hotfix/**,feature/*,master,develop}' :
       -   step:
             name: Installing & Running Tests
             script:
@@ -13,7 +13,7 @@ pipelines:
             name: Build
             trigger: manual
             script:
-              - sed -i -e 's%$RL_URL%'"https://qa-sinqueapi.efshipoci.com"'%g' ./src/environments/environment.prod.ts
+              - sed -i -e 's%$SINQUE_URL%'"https://qa-sinqueapi.efshipoci.com"'%g' ./src/environments/environment.prod.ts
               - npm run build
             artifacts:
               - dist/**
@@ -36,72 +36,72 @@ pipelines:
                     AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
                     DISTRIBUTION_ID: $DISTRIBUTION_ID
 
-    '{release/**,hotfix/**}':
-      -   step:
-            name: Installing & Running Tests
-            script:
-              - npm cache clean -f
-              - npm install
-            artifacts:
-              - node_modules/**
-      -   step:
-            name: Build
-            trigger: manual
-            script:
-              - sed -i -e 's%$RL_URL%'"https://qa-sinqueapi.efshipoci.com"'%g' ./src/environments/environment.prod.ts
-              - npm run build
-            artifacts:
-              - dist/**
-      -   step:
-            name: Deploy to S3 & Invalidate Cloudfront Cache
-            deployment: staging-qa
-            script:
-              -   pipe: atlassian/aws-s3-deploy:0.2.4
-                  variables:
-                    AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-                    AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-                    AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
-                    S3_BUCKET: $S3_BUCKET
-                    ACL: "public-read"
-                    LOCAL_PATH: "dist"
-              - pipe: atlassian/aws-cloudfront-invalidate:0.1.1
-                variables:
-                  AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-                  AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-                  AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
-                  DISTRIBUTION_ID: $DISTRIBUTION_ID
-
-    master,develop:
-      - step:
-          name: Installing & Running Tests
-          script:
-            - npm cache clean -f
-            - npm install
-          artifacts:
-            - node_modules/**
-      - step:
-          name: Build
-          trigger: manual
-          script:
-            - sed -i -e 's%$RL_URL%'"https://qa-sinqueapi.efshipoci.com"'%g' ./src/environments/environment.prod.ts
-            - npm run build
-          artifacts:
-            - dist/**
-      - step:
-          name: Deploy to S3 & Invalidate Cloudfront Cache
-          deployment: staging-qa
-          script:
-            - pipe: atlassian/aws-s3-deploy:0.2.4
-              variables:
-                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
-                S3_BUCKET: $S3_BUCKET
-                ACL: "public-read"
-                LOCAL_PATH: "dist"
-            - pipe: atlassian/aws-cloudfront-invalidate:0.1.1
-              variables:
-                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
-                DISTRIBUTION_ID: $DISTRIBUTION_ID
+#    '{release/**,hotfix/**}':
+#      -   step:
+#            name: Installing & Running Tests
+#            script:
+#              - npm cache clean -f
+#              - npm install
+#            artifacts:
+#              - node_modules/**
+#      -   step:
+#            name: Build
+#            trigger: manual
+#            script:
+#              - sed -i -e 's%$SINQUE_URL%'"https://qa-sinqueapi.efshipoci.com"'%g' ./src/environments/environment.prod.ts
+#              - npm run build
+#            artifacts:
+#              - dist/**
+#      -   step:
+#            name: Deploy to S3 & Invalidate Cloudfront Cache
+#            deployment: staging-qa
+#            script:
+#              -   pipe: atlassian/aws-s3-deploy:0.2.4
+#                  variables:
+#                    AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+#                    AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+#                    AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+#                    S3_BUCKET: $S3_BUCKET
+#                    ACL: "public-read"
+#                    LOCAL_PATH: "dist"
+#              - pipe: atlassian/aws-cloudfront-invalidate:0.1.1
+#                variables:
+#                  AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+#                  AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+#                  AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+#                  DISTRIBUTION_ID: $DISTRIBUTION_ID
+#
+#    master,develop:
+#      - step:
+#          name: Installing & Running Tests
+#          script:
+#            - npm cache clean -f
+#            - npm install
+#          artifacts:
+#            - node_modules/**
+#      - step:
+#          name: Build
+#          trigger: manual
+#          script:
+#            - sed -i -e 's%$SINQUE_URL%'"https://qa-sinqueapi.efshipoci.com"'%g' ./src/environments/environment.prod.ts
+#            - npm run build
+#          artifacts:
+#            - dist/**
+#      - step:
+#          name: Deploy to S3 & Invalidate Cloudfront Cache
+#          deployment: staging-qa
+#          script:
+#            - pipe: atlassian/aws-s3-deploy:0.2.4
+#              variables:
+#                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+#                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+#                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+#                S3_BUCKET: $S3_BUCKET
+#                ACL: "public-read"
+#                LOCAL_PATH: "dist"
+#            - pipe: atlassian/aws-cloudfront-invalidate:0.1.1
+#              variables:
+#                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+#                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+#                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+#                DISTRIBUTION_ID: $DISTRIBUTION_ID
