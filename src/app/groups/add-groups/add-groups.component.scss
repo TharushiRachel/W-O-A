@@ -1,0 +1,32 @@
+.example-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .feild-sec{
+    width: 100%;
+  }
+
+  .lable-sec{
+    padding-right: 50px;
+  }
+
+  .input-sec{
+    width:500px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    margin-right: 35px;
+  }
+
+// .mat-form-field {
+//     display: block !important;
+//     position: relative;
+//     text-align: left;
+// }

@@ -2,6 +2,9 @@ import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
 import {ModalConfig} from '../../resources/partials';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatDialog} from '@angular/material/dialog';
+import { AddGroupsComponent } from '../add-groups/add-groups.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -22,6 +25,10 @@ export class GroupsListComponent {
   displayedColumns: string[] = ['id', 'name', 'contract_status', 'company_name', 'sinque_owner', 'subgroups', 'actions'];
   dataSource = new MatTableDataSource<GroupsElement>(ELEMENT_DATA);
 
+  constructor(private dialog: MatDialog, private router:Router){
+
+  }
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
@@ -36,6 +43,22 @@ export class GroupsListComponent {
   deleteGroup(groupId: any) {
     this.delete.emit(groupId);
   }
+
+  OpenDialog(enteranimation: any, exitanimation: any,code:any) {
+
+    this.dialog.open(AddGroupsComponent, {
+      enterAnimationDuration: enteranimation,
+      exitAnimationDuration: exitanimation,
+      width: "50%",
+      data:{
+        empcode:code
+      }
+    })
+  }
+
+  // addGroup(){
+  //   this.router.navigate(['add-groups']);
+  // }
 }
 
 export interface GroupsElement {
@@ -139,3 +162,7 @@ const ELEMENT_DATA: GroupsElement[] = [
     subgroups: 'Sub Group 1',
   },
 ];
+
+
+
+
