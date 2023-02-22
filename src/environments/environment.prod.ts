@@ -11,6 +11,7 @@ export const environment = {
   isMockEnabled: true,
   apiUrl: 'api',
   appThemeName: 'Sinque',
+  SINQUE_URL: '$SINQUE_URL',
 };
 
 /*

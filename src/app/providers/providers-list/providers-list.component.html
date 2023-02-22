@@ -1,22 +1,22 @@
 <div class="card mb-5 mb-xl-10" id="groups-list-view">
   <div class="card-header cursor-pointer">
     <div class="card-title m-0">
-      <h3 class="fw-bolder m-0">Groups</h3>
+      <h3 class="fw-bolder m-0">Sub Providers</h3>
     </div>
   </div>
 
   <mat-divider></mat-divider>
 
   <div class="col-md-1">
-    <button (click)="OpenDialog('1000ms','500ms','')" class="float-right mt-2 pr-3 add-group-btn" color="primary" mat-button mat-raised-button
-            type="button">Add New Group
+    <button class="float-right mt-2 pr-3 add-group-btn" color="primary" mat-button mat-raised-button
+            type="button"><mat-icon>add</mat-icon>  Add New Provider
     </button>
   </div>
 
   <div class="card">
     <div class="card-body p-9">
       <div class="mat-elevation-z5">
-        <search-groups-form></search-groups-form>
+        <search-providers-form></search-providers-form>
       </div>
     </div>
   </div>
@@ -26,57 +26,42 @@
 
       <table [dataSource]="dataSource" mat-table>
 
-        <!-- Position Column -->
-
         <ng-container matColumnDef="id">
           <div class="row-header">
-          <th *matHeaderCellDef mat-header-cell  class="table-sec"> Group ID</th>
-        </div>
-          <td *matCellDef="let group" mat-cell> {{group.id}} </td>
+            <th *matHeaderCellDef mat-header-cell class="table-sec">Provider ID</th>
+          </div>
+          <td *matCellDef="let provider" mat-cell> {{provider.id}} </td>
         </ng-container>
 
         <ng-container matColumnDef="name">
-          <th *matHeaderCellDef mat-header-cell> Group Name</th>
-          <td *matCellDef="let group" mat-cell> {{group.name}} </td>
+          <th *matHeaderCellDef mat-header-cell> Provider Name</th>
+          <td *matCellDef="let provider" mat-cell> {{provider.name}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="contract_status">
-          <th *matHeaderCellDef mat-header-cell> Contract Status</th>
-          <td *matCellDef="let group" mat-cell>
-            <mat-chip *ngIf="group.contract_status === true" class="text-success">
-              Active
-            </mat-chip>
-            <mat-chip *ngIf="group.contract_status === false" class="text-warning">
-              Inactive
-            </mat-chip>
-          </td>
+        <ng-container matColumnDef="country">
+          <th *matHeaderCellDef mat-header-cell> Country</th>
+          <td *matCellDef="let provider" mat-cell> {{provider.country}} </td>
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="company_name">
-          <th *matHeaderCellDef mat-header-cell> Company Name</th>
-          <td *matCellDef="let group" mat-cell> {{group.company_name}} </td>
+        <ng-container matColumnDef="groups">
+          <th *matHeaderCellDef mat-header-cell> Groups</th>
+          <td *matCellDef="let provider" mat-cell> {{provider.groups}} </td>
         </ng-container>
 
         <!--        &lt;!&ndash; Weight Column &ndash;&gt;-->
-        <ng-container matColumnDef="sinque_owner">
-          <th *matHeaderCellDef mat-header-cell> Sinque Owner</th>
-          <td *matCellDef="let group" mat-cell> {{group.sinque_owner}} </td>
-        </ng-container>
-
-        <!-- Symbol Column -->
         <ng-container matColumnDef="subgroups">
           <th *matHeaderCellDef mat-header-cell> Subgroups</th>
-          <td *matCellDef="let group" mat-cell> {{group.subgroups}} </td>
+          <td *matCellDef="let provider" mat-cell> {{provider.subgroups}} </td>
         </ng-container>
 
 
         <ng-container matColumnDef="actions">
           <th *matHeaderCellDef mat-header-cell> Actions</th>
-          <td mat-cell *matCellDef="let group">
+          <td mat-cell *matCellDef="let provider">
             <div class="ActionBtnContent ">
               <a
-                [routerLink]="['edit', group.id]"
+                [routerLink]="['edit', provider.id]"
                 class="OutlineBtn OutLineBtnYellow"
                 color="primary"
                 matTooltip="Edit Contract"
@@ -85,9 +70,9 @@
               </a>&nbsp;
 
               <button
-                (click)="deleteGroup(group.id)"
+                (click)="deleteProvider(provider.id)"
                 class="OutlineBtn OutLineRed"
-                matTooltip="Delete Contract"
+                matTooltip="Delete Sub Group"
                 type="button"
               >
                 <mat-icon>delete</mat-icon>

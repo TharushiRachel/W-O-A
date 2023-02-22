@@ -1,0 +1,103 @@
+<div class="card mb-5 mb-xl-10" id="groups-list-view">
+  <div class="card-header cursor-pointer">
+    <div class="card-title m-0">
+      <h3 class="fw-bolder m-0">Sub Groups</h3>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="col-md-1">
+    <button class="float-right mt-2 pr-3 add-group-btn" color="primary" mat-button mat-raised-button
+            type="button"><mat-icon>add</mat-icon>  Add New Sub Group
+    </button>
+  </div>
+
+  <div class="card">
+    <div class="card-body p-9">
+      <div class="mat-elevation-z5">
+        <search-sub-groups-form></search-sub-groups-form>
+      </div>
+    </div>
+  </div>
+  <div class="card-body p-9">
+    <div class="mat-elevation-z8">
+
+
+      <table [dataSource]="dataSource" mat-table>
+
+        <ng-container matColumnDef="id">
+          <div class="row-header">
+            <th *matHeaderCellDef mat-header-cell class="table-sec">Sub Group ID</th>
+          </div>
+          <td *matCellDef="let subGroup" mat-cell> {{subGroup.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th *matHeaderCellDef mat-header-cell> Sub Group Name</th>
+          <td *matCellDef="let subGroup" mat-cell> {{subGroup.name}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="groups">
+          <th *matHeaderCellDef mat-header-cell> Groups</th>
+          <td *matCellDef="let subGroup" mat-cell> {{subGroup.groups}} </td>
+        </ng-container>
+
+        <!--        &lt;!&ndash; Weight Column &ndash;&gt;-->
+        <ng-container matColumnDef="contact">
+          <th *matHeaderCellDef mat-header-cell> Contact</th>
+          <td *matCellDef="let subGroup" mat-cell> {{subGroup.contact}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="phone">
+          <th *matHeaderCellDef mat-header-cell> phone</th>
+          <td *matCellDef="let subGroup" mat-cell> {{subGroup.phone}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="email">
+          <th *matHeaderCellDef mat-header-cell> email</th>
+          <td *matCellDef="let subGroup" mat-cell> {{subGroup.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th *matHeaderCellDef mat-header-cell> Actions</th>
+          <td mat-cell *matCellDef="let subGroup">
+            <div class="ActionBtnContent ">
+              <a
+                [routerLink]="['edit', subGroup.id]"
+                class="OutlineBtn OutLineBtnYellow"
+                color="primary"
+                matTooltip="Edit Contract"
+              >
+                <mat-icon>create</mat-icon>
+              </a>&nbsp;
+
+              <button
+                (click)="deleteSubGroup(subGroup.id)"
+                class="OutlineBtn OutLineRed"
+                matTooltip="Delete Sub Group"
+                type="button"
+              >
+                <mat-icon>delete</mat-icon>
+
+              </button>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     aria-label="Select page of periodic elements"
+                     showFirstLastButtons>
+      </mat-paginator>
+    </div>
+
+  </div>
+</div>
+

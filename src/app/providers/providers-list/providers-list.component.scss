@@ -23,6 +23,15 @@ tr.mat-header-row {
   padding: 100px;
 }
 
+.mat-chip.mat-standard-chip {
+  // color: #4FAC16;
+  background-color: none;
+}
+
+.mat-chip.mat-standard-chip {
+  background-color: #ffffff;
+}
+
 .mat-header-cell.action{
   padding-top: 25px;
 }

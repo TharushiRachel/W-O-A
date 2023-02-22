@@ -22,10 +22,14 @@ const Routing: Routes = [
       import('./groups/groups-list/groups-list.module').then((m) => m.GroupsListModule),
   },
   {
-    path: 'profile',
+    path: 'subgroups',
     loadChildren: () =>
-      import('./modules/profile/profile.module').then((m) => m.ProfileModule),
-    data: {layout: 'light-sidebar'},
+      import('./subGroups/sub-groups-list/sub-groups-list.module').then((m) => m.SubGroupsListModule),
+  },
+  {
+    path: 'providers',
+    loadChildren: () =>
+      import('./providers/providers-list/providers-list.module').then((m) => m.ProvidersListModule),
   },
   {
     path: 'account',
