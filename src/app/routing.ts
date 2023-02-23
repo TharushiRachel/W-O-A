@@ -22,6 +22,11 @@ const Routing: Routes = [
       import('./groups/groups-list/groups-list.module').then((m) => m.GroupsListModule),
   },
   {
+    path: 'add-groups',
+    loadChildren: () =>
+      import('./groups/add-groups/add-groups.module').then((m) => m.AddGroupsModule),
+  },
+  {
     path: 'subgroups',
     loadChildren: () =>
       import('./subGroups/sub-groups-list/sub-groups-list.module').then((m) => m.SubGroupsListModule),

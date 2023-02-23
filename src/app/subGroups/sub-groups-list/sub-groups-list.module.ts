@@ -14,9 +14,12 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatInputModule} from "@angular/material/input";
+import { AddSubGroupComponent } from '../add-sub-group/add-sub-group.component';
+import { MatSelectModule} from '@angular/material/select'; 
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [SubGroupsListComponent, SearchSubGroupsFormComponent],
+  declarations: [SubGroupsListComponent, SearchSubGroupsFormComponent, AddSubGroupComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([
@@ -38,6 +41,8 @@ import {MatInputModule} from "@angular/material/input";
     MatDividerModule,
     MatChipsModule,
     MatInputModule,
+    MatSelectModule,
+    MatDialogModule
   ],
 })
 export class SubGroupsListModule {

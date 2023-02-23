@@ -54,13 +54,31 @@
 
 
     <!-- Groups -->
-    <div class="menu-item">
+    <!-- <div class="menu-item">
       <a class="menu-link without-sub" routerLink="/groups" routerLinkActive="active">
         <span class="menu-icon">
           <span [inlineSVG]="'./assets/media/icons/communication/com014.svg'" class="svg-icon svg-icon-2"></span>
         </span>
         <span class="menu-title">Groups</span>
       </a>
+    </div> -->
+
+    <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="active">
+      <span class="menu-link"><span class="menu-icon"><span class="svg-icon svg-icon-2"
+                                                            [inlineSVG]="'./assets/media/icons/abstract/abs027.svg'"></span></span><span
+        class="menu-title"
+        data-link="/error">Groups</span><span class="menu-arrow"></span></span>
+      <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/groups" routerLinkActive="active"><span
+            class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
+            class="menu-title">Group List</span></a>
+        </div>
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/add-groups" routerLinkActive="active"><span
+            class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Create Group</span></a>
+        </div>
+      </div>
     </div>
 
     <!-- Sub Groups -->
