@@ -1,6 +1,6 @@
 <h1>Create Group</h1>
 
-<form class="example-form" [formGroup]="Reactiveform" (ngSubmit)="SaveGroup()">
+<form class="example-form" [formGroup]="groupForm" (ngSubmit)="SaveGroup()">
   <mat-form-field class="feild-sec" appearance="fill">
     <mat-label>Group ID</mat-label>
     <input matInput formControlName="groupId">
@@ -14,8 +14,8 @@
     <mat-form-field class="feild-sec" appearance="fill">
       <mat-label>Language</mat-label>
       <mat-select formControlName="language">
-        <mat-option value="one">First option</mat-option>
-        <mat-option value="two">Second option</mat-option>
+        <mat-option value="english">English</mat-option>
+        <mat-option value="dutch">Dutch</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -49,6 +49,11 @@
 
     </div>
 
+    <p><span>You selected: </span><b>{{toppings.value}}</b></p>
+
+    
+    
+    
   </form>
   
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-add-sub-group',
@@ -15,6 +15,20 @@ export class AddSubGroupComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  Reactiveform = new FormGroup({
+    subGroupId: new FormControl({value: 0, disabled:true}),
+    subGroupName: new FormControl("", Validators.required),
+    groupId: new FormControl({value: 0, disabled:true}),
+    providerPro: new FormControl(""),
+    dataSharingId: new FormControl("")
+  });
+
+  SaveSubGroup(){
+    if(this.Reactiveform.valid){
+      console.log(this.Reactiveform.getRawValue());
+    }
   }
 
 }
