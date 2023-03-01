@@ -3,6 +3,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
 import { AddSubGroupComponent } from 'src/app/subGroups/add-sub-group/add-sub-group.component';
 import { Subscription, Observable } from 'rxjs';
+import { GroupService } from '../services';
+import { Group } from '../models';
 
 
 @Component({
@@ -19,6 +21,8 @@ export class AddGroupsComponent implements OnInit, OnDestroy{
   toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   displayedColumns: string[] = ['groupName', 'toppings'];
 
+  group: Group;
+
   defaultGroup: any = {
     groupId:1,
     groupName:'test',
@@ -33,7 +37,8 @@ export class AddGroupsComponent implements OnInit, OnDestroy{
 
   constructor(
     private dialog: MatDialog,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private groupServise: GroupService
     ) { }
 
   ngOnInit(): void {
@@ -75,11 +80,25 @@ export class AddGroupsComponent implements OnInit, OnDestroy{
   }
 
   SaveGroup(){
+    // this.groupServise.save(this.group);
+    
+    
+    
     if(this.groupForm.valid){
       console.log(this.groupForm.getRawValue());
     }
+
+
+    // if(this.groupForm.valid){
+    //   this.groupServise.save(this.group).subscribe(
+    //     data => console.log(this.groupForm.getRawValue())
+    //   )
+    // }
   }
-  
+
   
 
-}
+  
+  
+  }
+  
