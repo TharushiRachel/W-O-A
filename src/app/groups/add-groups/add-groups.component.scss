@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 50px;
+    width: 150%;
   }
   
   .example-full-width {
@@ -12,6 +13,7 @@
 
   .feild-sec{
     width: 100%;
+    padding-left: 170px;
   }
 
   .lable-sec{
@@ -47,4 +49,25 @@
 
 .button-field {
   flex: 0;
+}
+
+.lable{
+  display: block;
+  margin-bottom: 8px;
+}
+
+.title-tag{
+  
+}
+
+.title-sec{
+  background-color: #89CFF0;
+  text-align: center;
+  width: 125%;
+  margin-left: 170px;
+  padding: 10px;
+}
+
+.mat-form-field-flex {
+  border-radius: 10px;
 }
