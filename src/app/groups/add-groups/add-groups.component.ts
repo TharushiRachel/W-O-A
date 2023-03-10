@@ -17,10 +17,26 @@ import { Group } from '../models';
 
 export class AddGroupsComponent implements OnInit, OnDestroy{
 
-  toppings = new FormControl('');
-  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+  // toppings = new FormControl('');
+  // toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   displayedColumns: string[] = ['groupName', 'toppings'];
 
+  toppingsControl = new FormControl([]);
+  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+
+  onToppingRemoved(topping: string) {
+    const toppings = this.toppingsControl.value as string[];
+    this.removeFirst(toppings, topping);
+    // this.toppingsControl.setValue(toppings); 
+  }
+
+  private removeFirst<T>(array: T[], toRemove: T): void {
+    const index = array.indexOf(toRemove);
+    if (index !== -1) {
+      array.splice(index, 1);
+    }
+  }
+  
   group: Group;
 
   defaultGroup: any = {
@@ -41,6 +57,9 @@ export class AddGroupsComponent implements OnInit, OnDestroy{
     private groupServise: GroupService
     ) { }
 
+    
+  
+  
   ngOnInit(): void {
     this.initForm();
   }
@@ -61,9 +80,16 @@ export class AddGroupsComponent implements OnInit, OnDestroy{
     this.groupForm  = this.fb.group({
       groupId: new FormControl({value: 0, disabled:true}),
       groupName: new FormControl("", Validators.required),
-      language: new FormControl(""),
-      provideOwner: new FormControl(""),
-      toppings:new FormControl("")
+      language: new FormControl("", Validators.required),
+      provideOwner: new FormControl("", Validators.required),
+      toppingsControl:new FormControl(""),
+      address:new FormControl(""),
+      city:new FormControl(""),
+      region:new FormControl(""),
+      zipcode:new FormControl(""),
+      country:new FormControl(""),
+      email:new FormControl(""),
+      phone:new FormControl(""),
     })
   }
 
