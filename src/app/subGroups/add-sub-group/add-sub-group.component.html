@@ -1,22 +1,21 @@
-<h1>Create Sub Group</h1>
-
 <form class="example-form" [formGroup]="Reactiveform" (ngSubmit)="SaveSubGroup()">
-  <mat-form-field class="feild-sec" appearance="fill">
-    <mat-label>Sub Group ID</mat-label>
-    <input matInput formControlName="subGroupId">
-  </mat-form-field>
+
+  <div class="title-sec">
+    <p class="title-tag">Create Sub Group</p>
+  </div>
+
   
-  <mat-form-field class="feild-sec" appearance="fill">
+  <mat-form-field class="feild-sec" appearance="outline">
     <mat-label>Sub Group Name</mat-label>
     <input matInput formControlName="subGroupName">
   </mat-form-field>
 
-  <mat-form-field class="feild-sec" appearance="fill">
+  <mat-form-field class="feild-sec" appearance="outline">
     <mat-label>Group ID</mat-label>
     <input matInput formControlName="groupId">
   </mat-form-field>
   
-    <mat-form-field class="feild-sec" appearance="fill">
+    <mat-form-field class="feild-sec" appearance="outline">
       <mat-label>Provider Pro</mat-label>
       <mat-select formControlName="providerPro">
         <mat-option value="one">First option</mat-option>
@@ -24,13 +23,13 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field class="feild-sec" appearance="fill">
+    <mat-form-field class="feild-sec" appearance="outline">
         <mat-label>Data Sharing ID</mat-label>
         <input matInput formControlName="dataSharingId">
       </mat-form-field>
 
   
-    <button mat-button>Save</button><br>
+    <button mat-raised-button type="submit" class="save-btn">Save</button><br>
 
   </form>
 

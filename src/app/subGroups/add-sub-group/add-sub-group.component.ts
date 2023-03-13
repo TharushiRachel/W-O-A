@@ -18,11 +18,10 @@ export class AddSubGroupComponent implements OnInit {
   }
 
   Reactiveform = new FormGroup({
-    subGroupId: new FormControl({value: 0, disabled:true}),
     subGroupName: new FormControl("", Validators.required),
-    groupId: new FormControl({value: 0, disabled:true}),
-    providerPro: new FormControl(""),
-    dataSharingId: new FormControl("")
+    groupId: new FormControl("", Validators.required),
+    providerPro: new FormControl("", Validators.required),
+    dataSharingId: new FormControl("", Validators.required)
   });
 
   SaveSubGroup(){

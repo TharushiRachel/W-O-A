@@ -57,11 +57,7 @@
     <mat-form-field class="feild-sec sub-group-sec input-field" appearance="outline">
       <mat-label>Sub Groups</mat-label>
       <mat-select [formControl]="toppingsControl" multiple>
-    
-        
-    
         <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
-    
       </mat-select>
     </mat-form-field>
     
