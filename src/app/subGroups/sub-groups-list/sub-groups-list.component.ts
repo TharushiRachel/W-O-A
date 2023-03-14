@@ -2,6 +2,8 @@ import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
 import {ModalConfig} from '../../resources/partials';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { AddSubGroupComponent } from '../add-sub-group/add-sub-group.component';
 
 
 @Component({
@@ -15,6 +17,12 @@ export class SubGroupsListComponent {
     dismissButtonLabel: 'Submit',
     closeButtonLabel: 'Cancel'
   };
+
+  constructor(
+    private dialog: MatDialog,
+    // private fb: FormBuilder,
+    // private groupServise: GroupService
+    ) { }
 
   @Output()
   delete = new EventEmitter<any>();
@@ -35,6 +43,18 @@ export class SubGroupsListComponent {
 
   deleteSubGroup(subGroupId: any) {
     this.delete.emit(subGroupId);
+  }
+
+  OpenDialog(enteranimation: any, exitanimation: any,code:any) {
+
+    this.dialog.open(AddSubGroupComponent, {
+      enterAnimationDuration: enteranimation,
+      exitAnimationDuration: exitanimation,
+      width: "50%",
+      data:{
+        empcode:code
+      }
+    })
   }
 }
 

@@ -17,17 +17,14 @@ import { Group } from '../models';
 
 export class AddGroupsComponent implements OnInit, OnDestroy{
 
-  // toppings = new FormControl('');
-  // toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
-  displayedColumns: string[] = ['groupName', 'toppings'];
 
-  toppingsControl = new FormControl([]);
-  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+  subGroupControl = new FormControl([]);
+  subGroupList: string[] = ['sub group 1', 'sub group 2', 'sub group 3', 'sub group 4', 'sub group 5', 'sub group 6'];
 
-  onToppingRemoved(topping: string) {
-    const toppings = this.toppingsControl.value as string[];
-    this.removeFirst(toppings, topping);
-    // this.toppingsControl.setValue(toppings); 
+  onToppingRemoved(subGroup: string) {
+    const subGroups = this.subGroupControl.value as string[];
+    this.removeFirst(subGroups, subGroup);
+    // this.subGroupControl.setValue(subGroups); 
   }
 
   private removeFirst<T>(array: T[], toRemove: T): void {
@@ -68,21 +65,13 @@ export class AddGroupsComponent implements OnInit, OnDestroy{
     this.unsubscribe.forEach((sb) => sb.unsubscribe());
   }
 
-  // groupForm = new FormGroup({
-  //   groupId: new FormControl({value: 0, disabled:true}),
-  //   groupName: new FormControl("", Validators.required),
-  //   language: new FormControl(""),
-  //   provideOwner: new FormControl(""),
-  //   toppings:new FormControl("")
-  // });
-
   initForm(): void {
     this.groupForm  = this.fb.group({
       groupId: new FormControl({value: 0, disabled:true}),
       groupName: new FormControl("", Validators.required),
       language: new FormControl("", Validators.required),
       provideOwner: new FormControl("", Validators.required),
-      toppingsControl:new FormControl(""),
+      subGroupControl:new FormControl(""),
       address:new FormControl(""),
       city:new FormControl(""),
       region:new FormControl(""),
