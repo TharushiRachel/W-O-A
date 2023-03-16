@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AddGroupsComponent } from "./add-groups/add-groups.component";
+import { EditGroupsComponent } from "./edit-groups/edit-groups.component";
 import { GroupsListComponent } from "./groups-list/groups-list.component";
 
 const routes: Routes = [
@@ -17,6 +18,14 @@ const routes: Routes = [
     component:AddGroupsComponent,
     data: {
         title: 'Add New Group'
+    }
+},
+
+{
+    path: '',
+    component:EditGroupsComponent,
+    data: {
+        title: 'Edit Group'
     }
 }
 ];

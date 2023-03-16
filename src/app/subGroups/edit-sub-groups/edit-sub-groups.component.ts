@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-add-sub-group',
-  templateUrl: './add-sub-group.component.html',
-  styleUrls: ['./add-sub-group.component.scss']
+  selector: 'app-edit-sub-groups',
+  templateUrl: './edit-sub-groups.component.html',
+  styleUrls: ['./edit-sub-groups.component.scss']
 })
-export class AddSubGroupComponent implements OnInit {
+export class EditSubGroupsComponent implements OnInit {
 
   constructor() { }
 
@@ -20,7 +20,7 @@ export class AddSubGroupComponent implements OnInit {
     dataSharingId: new FormControl("", Validators.required)
   });
 
-  SaveSubGroup(){
+  EditSubGroup(){
     if(this.Reactiveform.valid){
       console.log(this.Reactiveform.getRawValue());
     }

@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AddSubGroupComponent } from "./add-sub-group/add-sub-group.component";
+import { EditSubGroupsComponent } from "./edit-sub-groups/edit-sub-groups.component";
 import { SubGroupsListComponent } from "./sub-groups-list/sub-groups-list.component";
 
 
@@ -18,6 +19,14 @@ const routes: Routes = [
     component:AddSubGroupComponent,
     data: {
         title: 'Add New Sub Group'
+    }
+},
+
+{
+    path: '',
+    component:EditSubGroupsComponent,
+    data: {
+        title: 'Edit Sub Group'
     }
 }
 ];

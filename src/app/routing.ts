@@ -27,6 +27,11 @@ const Routing: Routes = [
       import('./groups/add-groups/add-groups.module').then((m) => m.AddGroupsModule),
   },
   {
+    path: 'edit-groups',
+    loadChildren: () =>
+      import('./groups/edit-groups/edit-groups.module').then((m) => m.EditGroupsModule),
+  },
+  {
     path: 'subgroups',
     loadChildren: () =>
       import('./subGroups/sub-groups-list/sub-groups-list.module').then((m) => m.SubGroupsListModule),
@@ -35,6 +40,11 @@ const Routing: Routes = [
     path: 'add-sub-groups',
     loadChildren: () =>
       import('./subGroups/add-sub-group/add-sub-group.module').then((m) => m.AddSubGroupsModule),
+  },
+  {
+    path: 'edit-sub-groups',
+    loadChildren: () =>
+      import('./subGroups/edit-sub-groups/edit-sub-groups.module').then((m) => m.EditSubGroupsModule),
   },
   {
     path: 'providers',

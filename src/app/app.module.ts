@@ -13,6 +13,8 @@ import { AuthService } from './auth';
 import { environment } from 'src/environments/environment';
 // #fake-start#
 import { FakeAPIService } from './_fake';
+import { EditGroupsComponent } from './groups/edit-groups/edit-groups.component';
+import { EditSubGroupsComponent } from './subGroups/edit-sub-groups/edit-sub-groups.component';
 // #fake-end#
 
 function appInitializer(authService: AuthService) {
