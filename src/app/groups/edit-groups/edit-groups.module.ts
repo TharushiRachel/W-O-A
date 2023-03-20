@@ -43,7 +43,7 @@ import { EditGroupsComponent } from './edit-groups.component';
       MatInputModule,
       MatDialogModule,
       MatSelectModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
     ],
   })
   export class EditGroupsModule {

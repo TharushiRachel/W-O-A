@@ -19,47 +19,17 @@ const Routing: Routes = [
   {
     path: 'groups',
     loadChildren: () =>
-      import('./groups/groups-list/groups-list.module').then((m) => m.GroupsListModule),
-  },
-  {
-    path: 'add-groups',
-    loadChildren: () =>
-      import('./groups/add-groups/add-groups.module').then((m) => m.AddGroupsModule),
-  },
-  {
-    path: 'edit-groups',
-    loadChildren: () =>
-      import('./groups/edit-groups/edit-groups.module').then((m) => m.EditGroupsModule),
+      import('./groups/group.module').then((m) => m.GroupModule),
   },
   {
     path: 'subgroups',
     loadChildren: () =>
-      import('./subGroups/sub-groups-list/sub-groups-list.module').then((m) => m.SubGroupsListModule),
-  },
-  {
-    path: 'add-sub-groups',
-    loadChildren: () =>
-      import('./subGroups/add-sub-group/add-sub-group.module').then((m) => m.AddSubGroupsModule),
-  },
-  {
-    path: 'edit-sub-groups',
-    loadChildren: () =>
-      import('./subGroups/edit-sub-groups/edit-sub-groups.module').then((m) => m.EditSubGroupsModule),
+      import('./subGroups/sub-group.module').then((m) => m.SubGroupModule),
   },
   {
     path: 'providers',
     loadChildren: () =>
-      import('./providers/providers-list/providers-list.module').then((m) => m.ProvidersListModule),
-  },
-  {
-    path: 'add-providers',
-    loadChildren: () =>
-      import('./providers/add-providers/add-providers.module').then((m) => m.AddProvidersModule),
-  },
-  {
-    path: 'edit-providers',
-    loadChildren: () =>
-      import('./providers/edit-providers/edit-providers.module').then((m) => m.EditProvidersModule),
+      import('./providers/provider.module').then((m) => m.ProviderModule),
   },
   {
     path: 'account',

@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AddProvidersComponent } from "./add-providers/add-providers.component";
+import { EditProvidersComponent } from "./edit-providers/edit-providers.component";
 import { ProvidersListComponent } from "./providers-list/providers-list.component";
 
 
@@ -14,10 +15,18 @@ const routes: Routes = [
 },
 
 {
-    path: '',
+    path: 'add',
     component:AddProvidersComponent,
     data: {
         title: 'Add New Provider'
+    }
+},
+
+{
+    path: 'edit',
+    component:EditProvidersComponent,
+    data: {
+        title: 'Edit Provider'
     }
 }
 ];
@@ -28,4 +37,4 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 
-export class GroupRouting { }
+export class ProviderRoutingModule { }

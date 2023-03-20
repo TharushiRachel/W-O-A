@@ -14,7 +14,7 @@ const routes: Routes = [
 },
 
 {
-    path: '',
+    path: 'add',
     component:AddGroupsComponent,
     data: {
         title: 'Add New Group'
@@ -22,7 +22,7 @@ const routes: Routes = [
 },
 
 {
-    path: '',
+    path: 'edit',
     component:EditGroupsComponent,
     data: {
         title: 'Edit Group'
@@ -36,4 +36,4 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 
-export class GroupRouting { }
+export class GroupRoutingModule { }

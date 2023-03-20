@@ -15,7 +15,7 @@ const routes: Routes = [
 },
 
 {
-    path: '',
+    path: 'add',
     component:AddSubGroupComponent,
     data: {
         title: 'Add New Sub Group'
@@ -23,7 +23,7 @@ const routes: Routes = [
 },
 
 {
-    path: '',
+    path: 'edit',
     component:EditSubGroupsComponent,
     data: {
         title: 'Edit Sub Group'
@@ -37,4 +37,4 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 
-export class SubGroupRouting { }
+export class SubGroupRoutingModule { }
