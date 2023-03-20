@@ -16,6 +16,7 @@ import {MatInputModule} from "@angular/material/input";
 import { MatSelectModule} from '@angular/material/select'; 
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddProvidersComponent } from './add-providers.component';
+import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { AddProvidersComponent } from './add-providers.component';
       MatInputModule,
       MatDialogModule,
       MatSelectModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+    //   MatSelectCountryModule
     ],
   })
   export class AddProvidersModule {
