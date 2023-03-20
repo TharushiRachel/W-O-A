@@ -15,18 +15,17 @@ import {MatInputModule} from "@angular/material/input";
 
 import { MatSelectModule} from '@angular/material/select'; 
 import { MatDialogModule } from '@angular/material/dialog';
-import { AddProvidersComponent } from './add-providers.component';
-
+import { EditProvidersComponent } from './edit-providers.component';
 
 
 @NgModule({
-    declarations: [AddProvidersComponent],
+    declarations: [EditProvidersComponent],
     imports: [
       CommonModule,
       RouterModule.forChild([
         {
           path: '',
-          component: AddProvidersComponent,
+          component: EditProvidersComponent,
         },
       ]),
       WidgetsModule,
@@ -44,9 +43,8 @@ import { AddProvidersComponent } from './add-providers.component';
       MatInputModule,
       MatDialogModule,
       MatSelectModule,
-      ReactiveFormsModule,
-    //   MatSelectCountryModule
+      ReactiveFormsModule
     ],
   })
-  export class AddProvidersModule {
+  export class EditProvidersModule {
   }

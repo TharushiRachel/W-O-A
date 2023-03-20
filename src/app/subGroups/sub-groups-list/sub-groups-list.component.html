@@ -67,7 +67,7 @@
           <td mat-cell *matCellDef="let subGroup">
             <div class="ActionBtnContent ">
               <a
-                routerLink="/edit-sub-groups"
+              (click)="OpenDialog('1000ms','500ms','')"
                 class="OutlineBtn OutLineBtnYellow"
                 color="primary"
                 matTooltip="Edit Contract"

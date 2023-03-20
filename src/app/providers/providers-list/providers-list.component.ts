@@ -1,7 +1,10 @@
-import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {ModalConfig} from '../../resources/partials';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { EditProvidersComponent } from '../edit-providers/edit-providers.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,7 +12,7 @@ import {MatTableDataSource} from '@angular/material/table';
   templateUrl: './providers-list.component.html',
   styleUrls: ['./providers-list.component.scss'],
 })
-export class ProvidersListComponent {
+export class ProvidersListComponent implements OnInit{
   modalConfig: ModalConfig = {
     modalTitle: 'Modal title',
     dismissButtonLabel: 'Submit',
@@ -22,12 +25,15 @@ export class ProvidersListComponent {
   displayedColumns: string[] = ['id', 'name', 'groups', 'country', 'subgroups', 'actions'];
   dataSource = new MatTableDataSource<ProvidersElement>(ELEMENT_DATA);
 
+  constructor(private dialog: MatDialog, private router:Router){
+
+  }
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngOnInit(): void {
   }
-
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -35,6 +41,19 @@ export class ProvidersListComponent {
 
   deleteProvider(subGroupId: any) {
     this.delete.emit(subGroupId);
+  }
+
+  OpenDialog(enteranimation: any, exitanimation: any,code:any) {
+
+    this.dialog.open(EditProvidersComponent, {
+      enterAnimationDuration: enteranimation,
+      exitAnimationDuration: exitanimation,
+      width: "50%",
+      height:"100%",
+      data:{
+        empcode:code
+      }
+    })
   }
 }
 

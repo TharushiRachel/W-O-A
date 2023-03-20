@@ -57,6 +57,11 @@ const Routing: Routes = [
       import('./providers/add-providers/add-providers.module').then((m) => m.AddProvidersModule),
   },
   {
+    path: 'edit-providers',
+    loadChildren: () =>
+      import('./providers/edit-providers/edit-providers.module').then((m) => m.EditProvidersModule),
+  },
+  {
     path: 'account',
     loadChildren: () =>
       import('./modules/account/account.module').then((m) => m.AccountModule),

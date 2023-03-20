@@ -4,6 +4,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddSubGroupComponent } from '../add-sub-group/add-sub-group.component';
+import { EditSubGroupsComponent } from '../edit-sub-groups/edit-sub-groups.component';
 
 
 @Component({
@@ -47,7 +48,7 @@ export class SubGroupsListComponent {
 
   OpenDialog(enteranimation: any, exitanimation: any,code:any) {
 
-    this.dialog.open(AddSubGroupComponent, {
+    this.dialog.open(EditSubGroupsComponent, {
       enterAnimationDuration: enteranimation,
       exitAnimationDuration: exitanimation,
       width: "50%",

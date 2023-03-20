@@ -14,6 +14,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatInputModule} from "@angular/material/input";
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [ProvidersListComponent, SearchProvidersFormComponent],
@@ -38,6 +39,7 @@ import {MatInputModule} from "@angular/material/input";
     MatDividerModule,
     MatChipsModule,
     MatInputModule,
+    MatDialogModule
   ],
 })
 export class ProvidersListModule {

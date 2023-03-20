@@ -1,0 +1,94 @@
+<form class="example-form" [formGroup]="providerForm" (ngSubmit)="UpdateProvider()">
+
+  
+    <div class="title-sec">
+      <p class="title-tag">Edit Provider</p>
+    </div>
+  
+    <mat-divider></mat-divider>
+  
+    <mat-form-field class="feild-sec" appearance="outline">
+        <mat-label>Provider Type</mat-label>
+        <mat-select formControlName="providerType">
+          <mat-option value="providerPro">Provider Pro</mat-option>
+          <mat-option value="providerOwner">Provider Owner</mat-option>
+          <mat-option value="sinqueProvider">Sinque Provider</mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+      
+      <div class="form-container">
+  
+        <mat-form-field class="feild-sec split-feild" appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+  
+        <mat-form-field class="feild-sec" appearance="outline">
+          <mat-label>Surname</mat-label>
+          <input matInput formControlName="surname">
+        </mat-form-field>
+  
+      </div>
+
+      <div class="form-container">
+  
+        <mat-form-field class="feild-sec split-feild" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+        </mat-form-field>
+  
+        <mat-form-field class="feild-sec" appearance="outline">
+          <mat-label>Mobile Number</mat-label>
+          <input matInput formControlName="mobileNo">
+        </mat-form-field>
+  
+      </div>
+
+      <mat-form-field class="feild-sec" appearance="outline">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address">
+      </mat-form-field>
+
+      <mat-form-field class="feild-sec" appearance="outline">
+        <mat-label>Country</mat-label>
+        <input matInput formControlName="country">
+      </mat-form-field>
+
+    
+      <mat-form-field class="feild-sec" appearance="outline">
+        <mat-label>Language</mat-label>
+        <mat-select formControlName="language">
+          <mat-option value="english">English</mat-option>
+          <mat-option value="dutch">Dutch</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="feild-sec" appearance="outline">
+        <mat-label>Profession</mat-label>
+        <input matInput formControlName="profession">
+      </mat-form-field>
+
+      <mat-form-field class="feild-sec" appearance="outline">
+        <mat-label>Area of Work</mat-label>
+        <input matInput formControlName="area">
+      </mat-form-field>
+
+      <mat-form-field class="feild-sec" appearance="outline">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description">
+      </mat-form-field>
+  
+      <button mat-raised-button type="submit" class="save-btn"><mat-icon>save</mat-icon>
+        Save
+      </button><br>
+      
+    </form>
+    
+  
+  
+   
+  
+   
+  
+
