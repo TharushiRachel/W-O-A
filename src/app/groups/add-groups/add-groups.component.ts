@@ -1,30 +1,39 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {MatDialog} from '@angular/material/dialog';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { AddSubGroupComponent } from 'src/app/subGroups/add-sub-group/add-sub-group.component';
 import { Subscription, Observable } from 'rxjs';
 import { GroupService } from '../services';
 import { Group } from '../models';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-groups',
   templateUrl: './add-groups.component.html',
-  styleUrls: ['./add-groups.component.scss']
+  styleUrls: ['./add-groups.component.scss'],
 })
-
-
-
-export class AddGroupsComponent implements OnInit, OnDestroy{
-
-
+export class AddGroupsComponent implements OnInit, OnDestroy {
   subGroupControl = new FormControl([]);
-  subGroupList: string[] = ['sub group 1', 'sub group 2', 'sub group 3', 'sub group 4', 'sub group 5', 'sub group 6'];
+  subGroupList: string[] = [
+    'sub group 1',
+    'sub group 2',
+    'sub group 3',
+    'sub group 4',
+    'sub group 5',
+    'sub group 6',
+  ];
+  errors = [];
+  isSubmitting = false;
 
   onToppingRemoved(subGroup: string) {
     const subGroups = this.subGroupControl.value as string[];
     this.removeFirst(subGroups, subGroup);
-    // this.subGroupControl.setValue(subGroups); 
+    // this.subGroupControl.setValue(subGroups);
   }
 
   private removeFirst<T>(array: T[], toRemove: T): void {
@@ -33,17 +42,16 @@ export class AddGroupsComponent implements OnInit, OnDestroy{
       array.splice(index, 1);
     }
   }
-  
+
   group: Group;
 
   defaultGroup: any = {
-    groupId:1,
-    groupName:'test',
-    language:'english',
-    provideOwner:'one',
+    groupId: 1,
+    groupName: 'test',
+    language: 'english',
+    provideOwner: 'one',
   };
   groupForm: FormGroup;
-
 
   // private fields
   private unsubscribe: Subscription[] = []; // Read more: => https://brianflove.com/2016/12/11/anguar-2-unsubscribe-observables/
@@ -51,12 +59,10 @@ export class AddGroupsComponent implements OnInit, OnDestroy{
   constructor(
     private dialog: MatDialog,
     private fb: FormBuilder,
-    private groupServise: GroupService
-    ) { }
+    private groupServise: GroupService,
+    private router: Router
+  ) {}
 
-    
-  
-  
   ngOnInit(): void {
     this.initForm();
   }
@@ -66,43 +72,51 @@ export class AddGroupsComponent implements OnInit, OnDestroy{
   }
 
   initForm(): void {
-    this.groupForm  = this.fb.group({
-      groupId: new FormControl({value: 0, disabled:true}),
-      groupName: new FormControl("", Validators.required),
-      language: new FormControl("", Validators.required),
-      provideOwner: new FormControl("", Validators.required),
-      subGroupControl:new FormControl(""),
-      address:new FormControl(""),
-      city:new FormControl(""),
-      region:new FormControl(""),
-      zipcode:new FormControl(""),
-      country:new FormControl(""),
-      email:new FormControl(""),
-      phone:new FormControl(""),
-    })
+    this.groupForm = this.fb.group({
+      groupId: new FormControl({ value: 0, disabled: true }),
+      groupName: new FormControl('', Validators.required),
+      language: new FormControl('', Validators.required),
+      provideOwner: new FormControl('', Validators.required),
+      subGroupControl: new FormControl(''),
+      address: new FormControl(''),
+      city: new FormControl(''),
+      region: new FormControl(''),
+      zipcode: new FormControl(''),
+      country: new FormControl(''),
+      email: new FormControl(''),
+      phone: new FormControl(''),
+    });
   }
 
-  OpenDialog(enteranimation: any, exitanimation: any,code:any) {
-
+  OpenDialog(enteranimation: any, exitanimation: any, code: any) {
     this.dialog.open(AddSubGroupComponent, {
       enterAnimationDuration: enteranimation,
       exitAnimationDuration: exitanimation,
-      width: "50%",
-      data:{
-        empcode:code
-      }
-    })
+      width: '50%',
+      data: {
+        empcode: code,
+      },
+    });
   }
 
-  SaveGroup(){
+  onSubmit() {
     // this.groupServise.save(this.group);
-    
-    
-    
-    if(this.groupForm.valid){
-      console.log(this.groupForm.getRawValue());
-    }
+    const navigationDetails = '';
+    this.isSubmitting = true;
+    this.errors = [];
+    const formData = this.groupForm.value;
+    console.log(formData);
 
+    this.groupServise.save(formData).subscribe(
+      (data) => {
+        this.router.navigateByUrl(navigationDetails);
+      },
+      (err) => {}
+    );
+
+    // if(this.groupForm.valid){
+    //   console.log(this.groupForm.getRawValue());
+    // }
 
     // if(this.groupForm.valid){
     //   this.groupServise.save(this.group).subscribe(
@@ -110,10 +124,4 @@ export class AddGroupsComponent implements OnInit, OnDestroy{
     //   )
     // }
   }
-
-  
-
-  
-  
-  }
-  
+}

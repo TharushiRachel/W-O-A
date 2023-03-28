@@ -8,9 +8,9 @@ import { Group } from '../models/group.model';
 export class GroupService{
     constructor(private http: HttpClient){}
 
-    // getGroups(filter: any): Observable<any> {
-	// 	return this.http.get<any>('/api/group', { params: filter });
-	// }
+    getgroups(filter: any): Observable<any> {
+		return this.http.get<any>('/api/group', { params: filter });
+	}
 
 	// getGroups(groupId: any): Observable<any> {
 	// 	return this.http.get<any>(`/api/group/${groupId}`);

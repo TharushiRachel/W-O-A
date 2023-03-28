@@ -1,38 +1,58 @@
-import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
-import {ModalConfig} from '../../resources/partials';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
-import {MatDialog} from '@angular/material/dialog';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { ModalConfig } from '../../resources/partials';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
 import { AddGroupsComponent } from '../add-groups/add-groups.component';
 import { Router } from '@angular/router';
-
+import { Group } from '../models/group.model';
+import { GroupService } from '../services';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './groups-list.component.html',
   styleUrls: ['./groups-list.component.scss'],
 })
-export class GroupsListComponent {
+export class GroupsListComponent implements OnInit {
   modalConfig: ModalConfig = {
     modalTitle: 'Modal title',
     dismissButtonLabel: 'Submit',
-    closeButtonLabel: 'Cancel'
+    closeButtonLabel: 'Cancel',
   };
 
   @Output()
   delete = new EventEmitter<any>();
 
-  displayedColumns: string[] = ['id', 'name', 'contract_status', 'company_name', 'sinque_owner', 'subgroups', 'actions'];
+  displayedColumns: string[] = [
+    'id',
+    'name',
+    'contract_status',
+    'company_name',
+    'sinque_owner',
+    'subgroups',
+    'actions',
+  ];
   dataSource = new MatTableDataSource<GroupsElement>(ELEMENT_DATA);
+  errors = [];
+  isSubmitting = false;
 
-  constructor(private dialog: MatDialog, private router:Router){
-
-  }
+  constructor(
+    private dialog: MatDialog,
+    private router: Router,
+    private groupService: GroupService
+  ) {}
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngOnInit(): void {
+    // this.getGroups();
   }
 
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
@@ -40,20 +60,30 @@ export class GroupsListComponent {
     this.dataSource.paginator = this.paginator;
   }
 
+  // getGroups(){
+  //   const navigationDetails = '';
+  //   this.isSubmitting = true;
+  //   this.errors = [];
+  //   // const formData = this.groupForm.value;
+
+  //   this.groupService.getgroups().subscribe(data ={
+  //     this.
+  //   })
+  // }
+
   deleteGroup(groupId: any) {
     this.delete.emit(groupId);
   }
 
-  OpenDialog(enteranimation: any, exitanimation: any,code:any) {
-
+  OpenDialog(enteranimation: any, exitanimation: any, code: any) {
     this.dialog.open(AddGroupsComponent, {
       enterAnimationDuration: enteranimation,
       exitAnimationDuration: exitanimation,
-      width: "50%",
-      data:{
-        empcode:code
-      }
-    })
+      width: '50%',
+      data: {
+        empcode: code,
+      },
+    });
   }
 
   // addGroup(){
@@ -162,7 +192,3 @@ const ELEMENT_DATA: GroupsElement[] = [
     subgroups: 'Sub Group 1',
   },
 ];
-
-
-
-
