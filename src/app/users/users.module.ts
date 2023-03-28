@@ -18,6 +18,7 @@ import { SearchUsersFormComponent } from './search-users-form/search-users-form.
 import { AddUsersComponent } from './add-users/add-users.component';
 import { UserRoutingModule } from './users-routing.module';
 import { UsersListComponent } from './users-list/users-list.component';
+import { ViewUsersComponent } from './view-users/view-users.component';
 
 // import { NgxSpinnerModule } from "ngx-spinner";
 
@@ -26,6 +27,7 @@ import { UsersListComponent } from './users-list/users-list.component';
     UsersListComponent,
     SearchUsersFormComponent,
     AddUsersComponent,
+    ViewUsersComponent,
   ],
   imports: [
     CommonModule,

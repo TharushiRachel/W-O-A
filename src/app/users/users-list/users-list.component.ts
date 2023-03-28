@@ -1,7 +1,9 @@
 import { Component, OnInit, Output, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ModalConfig } from 'src/app/resources/partials';
+import { ViewUsersComponent } from '../view-users/view-users.component';
 
 @Component({
   selector: 'app-users-list',
@@ -33,7 +35,9 @@ export class UsersListComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor() {}
+  constructor(
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {}
 
@@ -41,6 +45,19 @@ export class UsersListComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+
+  OpenDialog(enteranimation: any, exitanimation: any,code:any) {
+
+    this.dialog.open(ViewUsersComponent, {
+      enterAnimationDuration: enteranimation,
+      exitAnimationDuration: exitanimation,
+      width: "50%",
+      height: "80%",
+      data:{
+        empcode:code
+      }
+    })
+  }
   // deleteSubGroup(subGroupId: any) {
   //   this.delete.emit(subGroupId);
   // }

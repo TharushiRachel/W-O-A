@@ -74,20 +74,38 @@
           <td mat-cell *matCellDef="let subGroup">
             <div class="ActionBtnContent">
               <a
+                
+                (click)="OpenDialog('1000ms','500ms','')"
                 class="OutlineBtn OutLineBtnYellow"
                 color="primary"
-                matTooltip="Edit Contract"
+                matTooltip="View User"
+              >
+                <mat-icon>visibility</mat-icon>
+              </a>&nbsp;
+              
+              <a
+                class="OutlineBtn OutLineBtnYellow"
+                color="primary"
+                matTooltip="Edit User"
               >
                 <mat-icon>create</mat-icon> </a
               >&nbsp;
 
-              <button
+              <a
+                class="OutlineBtn OutLineRed"
+                color="primary"
+                matTooltip="Delete User"
+              >
+                <mat-icon>delete</mat-icon> </a
+              >&nbsp;
+
+              <!-- <button
                 class="OutlineBtn OutLineRed"
                 matTooltip="Delete Sub Group"
                 type="button"
               >
                 <mat-icon>delete</mat-icon>
-              </button>
+              </button> -->
             </div>
           </td>
         </ng-container>
