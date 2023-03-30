@@ -9,12 +9,12 @@ const Routing: Routes = [
   {
     path: 'contracts',
     loadChildren: () =>
-      import('./contracts/contract-list/contract-list.module').then((m) => m.ContractListModule),
+      import('./contracts/contract.module').then((m) => m.ContractModule),
   },
   {
     path: 'company',
     loadChildren: () =>
-      import('./company/company-list/company-list.module').then((m) => m.CompanyListModule),
+      import('./company/company.module').then((m) => m.CompanyModule),
   },
   {
     path: 'groups',

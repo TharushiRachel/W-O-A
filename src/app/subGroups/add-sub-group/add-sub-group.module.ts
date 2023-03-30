@@ -1,5 +1,3 @@
-// ADD GITHUB CO_PILOT
-
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
@@ -15,7 +13,7 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatInputModule} from "@angular/material/input";
 
-import { MatSelectModule} from '@angular/material/select'; 
+import { MatSelectModule} from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddSubGroupComponent } from './add-sub-group.component';
 

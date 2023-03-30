@@ -20,7 +20,7 @@ import { UserRoutingModule } from './users-routing.module';
 import { UsersListComponent } from './users-list/users-list.component';
 import { ViewUsersComponent } from './view-users/view-users.component';
 import { EditUsersComponent } from './edit-users/edit-users.component';
-
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 // import { NgxSpinnerModule } from "ngx-spinner";
 
@@ -52,6 +52,7 @@ import { EditUsersComponent } from './edit-users/edit-users.component';
     MatDialogModule,
     MatSelectModule,
     ReactiveFormsModule,
+    MatDatepickerModule,
     // NgxSpinnerModule
   ],
 })

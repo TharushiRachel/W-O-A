@@ -32,24 +32,43 @@
     </div>
 
     <!-- Contract -->
-    <div class="menu-item">
-      <a class="menu-link without-sub" routerLink="/contracts" routerLinkActive="active">
-        <span class="menu-icon">
-          <span [inlineSVG]="'./assets/media/icons/finance/fin006.svg'" class="svg-icon svg-icon-2"></span>
-        </span>
-        <span class="menu-title">Contract</span>
-      </a>
+
+    <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="active">
+      <span class="menu-link"><span class="menu-icon"><span class="svg-icon svg-icon-2"
+                                                            [inlineSVG]="'./assets/media/icons/finance/fin006.svg'"></span></span><span
+        class="menu-title"
+        data-link="">Contract</span><span class="menu-arrow"></span></span>
+      <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/contracts" routerLinkActive="active"><span
+            class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
+            class="menu-title">Contracts List</span></a>
+        </div>
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/contracts/add" routerLinkActive="active"><span
+            class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Create Contract</span></a>
+        </div>
+      </div>
     </div>
 
-
     <!-- Pages -->
-    <div class="menu-item">
-      <a class="menu-link without-sub" routerLink="/company" routerLinkActive="active">
-        <span class="menu-icon">
-          <span [inlineSVG]="'./assets/media/icons/finance/fin001.svg'" class="svg-icon svg-icon-2"></span>
-        </span>
-        <span class="menu-title">Company</span>
-      </a>
+
+    <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="active">
+      <span class="menu-link"><span class="menu-icon"><span class="svg-icon svg-icon-2"
+                                                            [inlineSVG]="'./assets/media/icons/finance/fin001.svg'"></span></span><span
+        class="menu-title"
+        data-link="">Company</span><span class="menu-arrow"></span></span>
+      <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/company" routerLinkActive="active"><span
+            class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
+            class="menu-title">Company List</span></a>
+        </div>
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/company/add" routerLinkActive="active"><span
+            class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Create Company</span></a>
+        </div>
+      </div>
     </div>
 
     <!-- Groups -->
@@ -89,9 +108,6 @@
         </div>
       </div>
     </div>
-
-    
-
 
     <!-- Providers -->
     <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="active">

@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthService } from './auth';
 import { environment } from 'src/environments/environment';
+import { MatNativeDateModule } from '@angular/material/core';
 // #fake-start#
 import { FakeAPIService } from './_fake';
 import { DeleteConfirmationComponent } from './shared/delete-confirmation/delete-confirmation.component';
@@ -45,6 +46,7 @@ function appInitializer(authService: AuthService) {
     AppRoutingModule,
     InlineSVGModule.forRoot(),
     NgbModule,
+    MatNativeDateModule
   ],
   providers: [
     {

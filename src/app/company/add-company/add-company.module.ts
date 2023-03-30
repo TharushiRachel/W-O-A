@@ -15,20 +15,13 @@ import {MatInputModule} from "@angular/material/input";
 
 import { MatSelectModule} from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
-import { EditSubGroupsComponent } from './edit-sub-groups.component';
-
+import { AddCompanyComponent } from './add-company.component';
 
 
 @NgModule({
-    declarations: [EditSubGroupsComponent],
+    declarations: [AddCompanyComponent],
     imports: [
       CommonModule,
-      RouterModule.forChild([
-        {
-          path: '',
-          component: EditSubGroupsComponent,
-        },
-      ]),
       WidgetsModule,
       ModalsModule,
       FormsModule,
@@ -47,5 +40,5 @@ import { EditSubGroupsComponent } from './edit-sub-groups.component';
       ReactiveFormsModule
     ],
   })
-  export class EditSubGroupsModule {
+  export class AddSubGroupsModule {
   }
