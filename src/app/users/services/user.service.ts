@@ -9,4 +9,8 @@ export class UserService {
   save(user: UserService): Observable<any> {
     return this.http.post<any>('/api/user', user);
   }
+
+  delete(userId: number): Observable<any> {
+		return this.http.delete(`/api/user/${userId}`);
+	}
 }

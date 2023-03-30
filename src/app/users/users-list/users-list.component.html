@@ -71,7 +71,7 @@
 
         <ng-container matColumnDef="actions">
           <th *matHeaderCellDef mat-header-cell>Actions</th>
-          <td mat-cell *matCellDef="let user">
+          <td mat-cell *matCellDef="let userId">
             <div class="ActionBtnContent">
               <a
                 (click)="OpenDialog('1000ms','500ms','')"
@@ -92,7 +92,7 @@
               >&nbsp;
 
               <a
-                (click)="deleteUser(user)"
+                (click)="openDialogForDelete(userId)"
                 class="OutlineBtn OutLineRed"
                 color="primary"
                 matTooltip="Delete User"

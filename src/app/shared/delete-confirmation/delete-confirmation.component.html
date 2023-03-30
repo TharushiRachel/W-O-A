@@ -1,18 +1,11 @@
-<h3 class="text-danger" mat-dialog-title>Delete Confirmation</h3>
-<div mat-dialog-content>
-  <p class="pt-4 pb-4">
-    <mat-icon>warning</mat-icon>
-    Are you sure you want to delete
-    <strong>{{ data?.name }}</strong
-    >?
-  </p>
-</div>
-<div align="end" mat-dialog-actions>
-  <button (click)="confirm()" class="mr-2" color="warn" mat-stroked-button>
-    Yes, Delete it
-  </button>
-  <button (click)="cancel()" mat-stroked-button>
-    Cancel
-  </button>
-</div>
+<h5>Are You Sure?</h5>
+    
+<mat-dialog-content>
+    <p>{{message}}</p>
+</mat-dialog-content>
+    
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" (click)="onConfirmClick()" tabindex="1">{{confirmButtonText}}</button>
+    <button mat-raised-button mat-dialog-close tabindex="-1">{{cancelButtonText}}</button>
+</mat-dialog-actions>
 

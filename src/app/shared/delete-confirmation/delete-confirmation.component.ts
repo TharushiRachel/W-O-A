@@ -1,4 +1,4 @@
-import { Component, HostListener, Inject } from '@angular/core';
+import { Component, EventEmitter, HostListener, Inject, Output } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
@@ -9,28 +9,20 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class DeleteConfirmationComponent{
 
-  constructor(
-    private dialogRef: MatDialogRef<DeleteConfirmationComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
-  }
-
-  @HostListener('window:keyup.esc') onKeyUp() {
-    this.dialogRef.close();
-  }
-
-  /**
-   * Close dialog
-   */
-  cancel(): void {
-    this.dialogRef.close({confirmed: false});
-  }
-
-  /**
-   * Confirms delete po detail confirmation component
-   */
-  confirm() {
-    this.dialogRef.close({confirmed: true});
-  }
-
+  message: string = "Are you sure want to delete?"
+  confirmButtonText = "Yes"
+    cancelButtonText = "Cancel"
+    constructor(@Inject(MAT_DIALOG_DATA) private data: any, private dialogRef: MatDialogRef<DeleteConfirmationComponent>) {
+        if(data){
+            this.message = data.message || this.message;
+            if (data.buttonText) {
+                this.confirmButtonText = data.buttonText.ok || this.confirmButtonText;
+                this.cancelButtonText = data.buttonText.cancel || this.cancelButtonText;
+            }
+        }
+    }
+ 
+    onConfirmClick(): void {
+        this.dialogRef.close(true);
+    }
 }
