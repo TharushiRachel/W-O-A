@@ -1,0 +1,156 @@
+<div class="form-container">
+<form class="example-form" [formGroup]="Reactiveform" (ngSubmit)="EditUser()">
+    <div class="title-sec">
+      <p class="title-tag">Edit Profile</p>
+    </div>
+  
+    <mat-divider></mat-divider>
+  
+    <!-- <mat-form-field class="feild-sec" appearance="outline">
+        <mat-label>Group ID</mat-label>
+        <input matInput formControlName="groupId">
+      </mat-form-field> -->
+  
+    <div class="form-container">
+      <mat-form-field class="feild-sec split-feild" appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+  
+      <mat-form-field class="feild-sec" appearance="outline">
+        <mat-label>Eamil</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+    </div>
+  
+    <mat-form-field class="feild-sec" appearance="outline">
+      <mat-label>Date of Birth</mat-label>
+      <input matInput formControlName="dob" />
+    </mat-form-field>
+  
+    <mat-form-field class="feild-sec" appearance="outline">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option value="english">Male</mat-option>
+        <mat-option value="dutch">Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="form-container">
+        <mat-form-field class="feild-sec split-feild" appearance="outline">
+          <mat-label>Weight Measurement Unit</mat-label>
+          <mat-select formControlName="weightUnit">
+            <mat-option value="english">Kilograms</mat-option>
+            <mat-option value="dutch">Pounds</mat-option>
+            <mat-option value="dutch">Stones</mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field class="feild-sec" appearance="outline">
+          <mat-label>Height Measurement Unit</mat-label>
+          <mat-select formControlName="heightUnit">
+            <mat-option value="english">Centimeters</mat-option>
+            <mat-option value="dutch">Feet</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field class="feild-sec" appearance="outline">
+        <mat-label>Height</mat-label>
+        <input matInput formControlName="height" />
+      </mat-form-field>
+  
+    <!-- <div class="contact-sec">
+      <p>Contact Details</p>
+    </div> -->
+  
+    <mat-form-field class="feild-sec" appearance="outline">
+      <mat-label>Eamil Work</mat-label>
+      <input matInput formControlName="emailWork" />
+    </mat-form-field>
+  
+    <mat-form-field class="feild-sec" appearance="outline">
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="address" />
+    </mat-form-field>
+  
+    <div class="form-container">
+      <mat-form-field class="feild-sec split-feild" appearance="outline">
+        <mat-label>City</mat-label>
+        <input matInput formControlName="city" />
+      </mat-form-field>
+  
+      <mat-form-field class="feild-sec" appearance="outline">
+        <mat-label>State/Region/Province</mat-label>
+        <input matInput formControlName="region" />
+      </mat-form-field>
+    </div>
+  
+    <div class="form-container">
+      <mat-form-field class="feild-sec split-feild" appearance="outline">
+        <mat-label>Postal / Zip Code</mat-label>
+        <input matInput formControlName="zipcode" />
+      </mat-form-field>
+  
+      <mat-form-field class="feild-sec" appearance="outline">
+        <mat-label>Country</mat-label>
+        <mat-select formControlName="country">
+          <mat-option value="english">English</mat-option>
+          <mat-option value="dutch">Dutch</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+    <mat-form-field class="feild-sec" appearance="outline">
+      <mat-label>Mobile No</mat-label>
+      <input matInput formControlName="phone" />
+    </mat-form-field>
+
+    <mat-form-field class="feild-sec" appearance="outline">
+        <mat-label>Language</mat-label>
+        <mat-select formControlName="language">
+          <mat-option value="english">English</mat-option>
+          <mat-option value="dutch">Dutch</mat-option>
+          <mat-option value="dutch">Portuguese</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+    <!-- <p><span>You selected: </span><b>{{toppings.value}}</b></p> -->
+    <button mat-raised-button type="submit" class="save-btn">
+      <mat-icon>save</mat-icon>
+      Save</button
+    ><br />
+  </form>
+
+
+  <form class="example-form left" [formGroup]="ChangePasswordform" (ngSubmit)="EditPassword()">
+    <div class="title-sec">
+        <p class="title-tag">Change Password</p>
+      </div>
+    
+      <mat-divider></mat-divider>
+    
+      
+        <mat-form-field class="feild-sec" appearance="outline">
+          <mat-label>Current Password</mat-label>
+          <input matInput formControlName="name" type="password"/>
+        </mat-form-field>
+    
+        <mat-form-field class="feild-sec" appearance="outline">
+          <mat-label>New Password</mat-label>
+          <input matInput formControlName="newPassword" type="password"/>
+        </mat-form-field>
+      
+    
+      <mat-form-field class="feild-sec" appearance="outline">
+        <mat-label>Confirm Your New Password</mat-label>
+        <input matInput formControlName="confirmNewpassword" type="password"/>
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" class="save-btn">
+        <mat-icon>save</mat-icon>
+        Update Password</button
+      ><br />
+  </form>
+</div>
+  

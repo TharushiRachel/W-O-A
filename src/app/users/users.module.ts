@@ -19,6 +19,8 @@ import { AddUsersComponent } from './add-users/add-users.component';
 import { UserRoutingModule } from './users-routing.module';
 import { UsersListComponent } from './users-list/users-list.component';
 import { ViewUsersComponent } from './view-users/view-users.component';
+import { EditUsersComponent } from './edit-users/edit-users.component';
+
 
 // import { NgxSpinnerModule } from "ngx-spinner";
 
@@ -28,6 +30,8 @@ import { ViewUsersComponent } from './view-users/view-users.component';
     SearchUsersFormComponent,
     AddUsersComponent,
     ViewUsersComponent,
+    EditUsersComponent,
+    // DeleteConfirmationComponent,
   ],
   imports: [
     CommonModule,

@@ -71,10 +71,9 @@
 
         <ng-container matColumnDef="actions">
           <th *matHeaderCellDef mat-header-cell>Actions</th>
-          <td mat-cell *matCellDef="let subGroup">
+          <td mat-cell *matCellDef="let user">
             <div class="ActionBtnContent">
               <a
-                
                 (click)="OpenDialog('1000ms','500ms','')"
                 class="OutlineBtn OutLineBtnYellow"
                 color="primary"
@@ -84,6 +83,7 @@
               </a>&nbsp;
               
               <a
+                routerLink="/users/edit"
                 class="OutlineBtn OutLineBtnYellow"
                 color="primary"
                 matTooltip="Edit User"
@@ -92,6 +92,7 @@
               >&nbsp;
 
               <a
+                (click)="deleteUser(user)"
                 class="OutlineBtn OutLineRed"
                 color="primary"
                 matTooltip="Delete User"

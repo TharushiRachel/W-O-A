@@ -13,6 +13,7 @@ import { AuthService } from './auth';
 import { environment } from 'src/environments/environment';
 // #fake-start#
 import { FakeAPIService } from './_fake';
+import { DeleteConfirmationComponent } from './shared/delete-confirmation/delete-confirmation.component';
 // #fake-end#
 
 function appInitializer(authService: AuthService) {
@@ -25,7 +26,7 @@ function appInitializer(authService: AuthService) {
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DeleteConfirmationComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   imports: [
     BrowserModule,

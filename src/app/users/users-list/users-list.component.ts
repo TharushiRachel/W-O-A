@@ -1,8 +1,9 @@
-import { Component, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ModalConfig } from 'src/app/resources/partials';
+import { EditUsersComponent } from '../edit-users/edit-users.component';
 import { ViewUsersComponent } from '../view-users/view-users.component';
 
 @Component({
@@ -17,8 +18,8 @@ export class UsersListComponent implements OnInit {
     closeButtonLabel: 'Cancel',
   };
 
-  // @Output()
-  // delete = new EventEmitter<any>();
+  @Output()
+  delete = new EventEmitter<any>();
 
   displayedColumns: string[] = [
     'id',
@@ -58,9 +59,23 @@ export class UsersListComponent implements OnInit {
       }
     })
   }
-  // deleteSubGroup(subGroupId: any) {
-  //   this.delete.emit(subGroupId);
-  // }
+
+  OpenDialogForEdit(enteranimation: any, exitanimation: any,code:any) {
+
+    this.dialog.open(EditUsersComponent, {
+      enterAnimationDuration: enteranimation,
+      exitAnimationDuration: exitanimation,
+      width: "50%",
+      height: "80%",
+      data:{
+        empcode:code
+      }
+    })
+  }
+
+  deleteUser(userId: any) {
+    this.delete.emit(userId);
+  }
 }
 
 export interface UsersElement {
