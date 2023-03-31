@@ -7,20 +7,45 @@
 }
 
 .title-sec{
-    text-align: left;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.message-sec{
+    text-align: center;
 }
 
 .confirm-btn{
     padding: 5px 15px 5px 15px;
-    border-color: #AC9D16 !important;
-    background-color: #AC9D16;
+    border-color: none !important;
+    background-color: red;
     margin-right: 20px;
     border-style: none !important;
+    margin-top: 20px;
+    width: 70px;
+    color: white;
 }
 
 .cancel-btn{
     padding: 5px 15px 5px 15px;
     border-color: none;
-    // background-color: #ffffff;
+    background-color: #C0C0C0;
+    border-style: none;
+    border-color: none;
     margin-right: 20px;
+    margin-top: 20px;
+    margin-left: 70px;
+    width: 70px;
+    color: white;
+}
+
+.red-color {
+    color:red;
+}
+
+.material-icons{
+    align-items: center;
+    vertical-align:middle;
+    font-size: 50px;
+    margin-left: 120px;
 }

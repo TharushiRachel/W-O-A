@@ -10,7 +10,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class DeleteConfirmationComponent{
 
   message: string = "Are you sure want to delete?"
-  confirmButtonText = "Yes"
+  confirmButtonText = "Confirm"
     cancelButtonText = "Cancel"
     constructor(@Inject(MAT_DIALOG_DATA) private data: any, private dialogRef: MatDialogRef<DeleteConfirmationComponent>) {
         if(data){
@@ -23,6 +23,10 @@ export class DeleteConfirmationComponent{
     }
  
     onConfirmClick(): void {
+        this.dialogRef.close(true);
+    }
+
+    onCancelClick(): void {
         this.dialogRef.close(true);
     }
 }
