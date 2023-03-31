@@ -12,4 +12,8 @@ export class CompanyService {
     save(company: Company): Observable<any> {
 		return this.http.post<any>('/api/company', company);
 	}
+
+    delete(companyId: number): Observable<any> {
+		return this.http.delete(`/api/company/${companyId}`);
+	}
 }

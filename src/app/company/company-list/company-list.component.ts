@@ -1,8 +1,11 @@
-import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
-import {ModalConfig} from '../../resources/partials';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
-
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { ModalConfig } from '../../resources/partials';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { CompanyService } from '../services';
+import { MatDialog } from '@angular/material/dialog';
+import { Company } from '../models';
+import { DeleteConfirmationComponent } from 'src/app/shared/delete-confirmation/delete-confirmation.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,28 +16,66 @@ export class CompanyListComponent {
   modalConfig: ModalConfig = {
     modalTitle: 'Modal title',
     dismissButtonLabel: 'Submit',
-    closeButtonLabel: 'Cancel'
+    closeButtonLabel: 'Cancel',
   };
 
   @Output()
   delete = new EventEmitter<any>();
 
-  displayedColumns: string[] = ['id', 'name', 'address', 'country', 'phone', 'tax', 'contract_name', 'contract_email', 'contract_phone', 'actions'];
+  displayedColumns: string[] = [
+    'id',
+    'name',
+    'address',
+    'country',
+    'phone',
+    'tax',
+    'contract_name',
+    'contract_email',
+    'contract_phone',
+    'actions',
+  ];
   dataSource = new MatTableDataSource<CompanyElement>(ELEMENT_DATA);
+
+  companies: Company[] = [];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
+  constructor(
+    private companyService: CompanyService,
+    private dialog: MatDialog
+  ) {}
+
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
 
+  // deleteCompany(companyId: any) {
+  //   this.delete.emit(companyId);
+  // }
+
   deleteCompany(companyId: any) {
-    this.delete.emit(companyId);
+    this.companyService.delete(companyId).subscribe((data) => {
+      this.companies = this.companies.filter((item) => item.id! == companyId);
+      console.log('Company deleted');
+    });
+  }
+
+  openDialogForDelete(companyId: any) {
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent, {
+      data: {
+        message: 'Do you want to delete the company?',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+        this.deleteCompany(companyId);
+      }
+    });
   }
 }
 
@@ -62,7 +103,7 @@ const ELEMENT_DATA: CompanyElement[] = [
     tax: 'Brazil',
     contract_name: 'Test',
     contract_email: 'test@sinque.co',
-    contract_phone: 775309503
+    contract_phone: 775309503,
   },
   {
     id: 2,
@@ -73,7 +114,7 @@ const ELEMENT_DATA: CompanyElement[] = [
     tax: 'Brazil',
     contract_name: 'Test',
     contract_email: 'test@sinque.co',
-    contract_phone: 775309503
+    contract_phone: 775309503,
   },
   {
     id: 3,
@@ -84,7 +125,7 @@ const ELEMENT_DATA: CompanyElement[] = [
     tax: 'Brazil',
     contract_name: 'Test',
     contract_email: 'test@sinque.co',
-    contract_phone: 775309503
+    contract_phone: 775309503,
   },
   {
     id: 4,
@@ -95,7 +136,7 @@ const ELEMENT_DATA: CompanyElement[] = [
     tax: 'Brazil',
     contract_name: 'Test',
     contract_email: 'test@sinque.co',
-    contract_phone: 775309503
+    contract_phone: 775309503,
   },
   {
     id: 5,
@@ -106,7 +147,7 @@ const ELEMENT_DATA: CompanyElement[] = [
     tax: 'Brazil',
     contract_name: 'Test',
     contract_email: 'test@sinque.co',
-    contract_phone: 775309503
+    contract_phone: 775309503,
   },
   {
     id: 6,
@@ -117,7 +158,7 @@ const ELEMENT_DATA: CompanyElement[] = [
     tax: 'Brazil',
     contract_name: 'Test',
     contract_email: 'test@sinque.co',
-    contract_phone: 775309503
+    contract_phone: 775309503,
   },
   {
     id: 7,
@@ -128,7 +169,7 @@ const ELEMENT_DATA: CompanyElement[] = [
     tax: 'Brazil',
     contract_name: 'Test',
     contract_email: 'test@sinque.co',
-    contract_phone: 775309503
+    contract_phone: 775309503,
   },
   {
     id: 8,
@@ -139,7 +180,7 @@ const ELEMENT_DATA: CompanyElement[] = [
     tax: 'Brazil',
     contract_name: 'Test',
     contract_email: 'test@sinque.co',
-    contract_phone: 775309503
+    contract_phone: 775309503,
   },
   {
     id: 9,
@@ -150,7 +191,7 @@ const ELEMENT_DATA: CompanyElement[] = [
     tax: 'Brazil',
     contract_name: 'Test',
     contract_email: 'test@sinque.co',
-    contract_phone: 775309503
+    contract_phone: 775309503,
   },
   {
     id: 10,
@@ -161,7 +202,7 @@ const ELEMENT_DATA: CompanyElement[] = [
     tax: 'Brazil',
     contract_name: 'Test',
     contract_email: 'test@sinque.co',
-    contract_phone: 775309503
+    contract_phone: 775309503,
   },
   {
     id: 11,
@@ -172,6 +213,6 @@ const ELEMENT_DATA: CompanyElement[] = [
     tax: 'Brazil',
     contract_name: 'Test',
     contract_email: 'test@sinque.co',
-    contract_phone: 775309503
+    contract_phone: 775309503,
   },
 ];

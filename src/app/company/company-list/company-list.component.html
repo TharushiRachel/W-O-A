@@ -15,82 +15,84 @@
   </div>
   <div class="card-body p-9">
     <div class="mat-elevation-z8">
-
       <table [dataSource]="dataSource" mat-table>
-
         <!-- Position Column -->
         <ng-container matColumnDef="id">
-          <th *matHeaderCellDef mat-header-cell> Company ID</th>
-          <td *matCellDef="let company" mat-cell> {{company.id}} </td>
+          <th *matHeaderCellDef mat-header-cell>Company ID</th>
+          <td *matCellDef="let company" mat-cell>{{ company.id }}</td>
         </ng-container>
 
         <ng-container matColumnDef="name">
-          <th *matHeaderCellDef mat-header-cell> Company Name</th>
-          <td *matCellDef="let company" mat-cell> {{company.name}} </td>
+          <th *matHeaderCellDef mat-header-cell>Company Name</th>
+          <td *matCellDef="let company" mat-cell>{{ company.name }}</td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="address">
-          <th *matHeaderCellDef mat-header-cell> Address</th>
-          <td *matCellDef="let company" mat-cell> {{company.address}} </td>
+          <th *matHeaderCellDef mat-header-cell>Address</th>
+          <td *matCellDef="let company" mat-cell>{{ company.address }}</td>
         </ng-container>
 
         <!--        &lt;!&ndash; Weight Column &ndash;&gt;-->
         <ng-container matColumnDef="country">
-          <th *matHeaderCellDef mat-header-cell> Country</th>
-          <td *matCellDef="let company" mat-cell> {{company.country}} </td>
+          <th *matHeaderCellDef mat-header-cell>Country</th>
+          <td *matCellDef="let company" mat-cell>{{ company.country }}</td>
         </ng-container>
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="phone">
-          <th *matHeaderCellDef mat-header-cell> Telephone</th>
-          <td *matCellDef="let company" mat-cell> {{company.phone}} </td>
+          <th *matHeaderCellDef mat-header-cell>Telephone</th>
+          <td *matCellDef="let company" mat-cell>{{ company.phone }}</td>
         </ng-container>
 
         <ng-container matColumnDef="tax">
-          <th *matHeaderCellDef mat-header-cell> Tax ID</th>
-          <td *matCellDef="let company" mat-cell> {{company.tax}} </td>
+          <th *matHeaderCellDef mat-header-cell>Tax ID</th>
+          <td *matCellDef="let company" mat-cell>{{ company.tax }}</td>
         </ng-container>
 
         <ng-container matColumnDef="contract_name">
-          <th *matHeaderCellDef mat-header-cell> Company Contract Name</th>
-          <td *matCellDef="let company" mat-cell> {{company.contract_name}} </td>
+          <th *matHeaderCellDef mat-header-cell>Company Contract Name</th>
+          <td *matCellDef="let company" mat-cell>
+            {{ company.contract_name }}
+          </td>
         </ng-container>
 
         <ng-container matColumnDef="contract_email">
-          <th *matHeaderCellDef mat-header-cell> Company Contract Email</th>
-          <td *matCellDef="let company" mat-cell> {{company.contract_email}} </td>
+          <th *matHeaderCellDef mat-header-cell>Company Contract Email</th>
+          <td *matCellDef="let company" mat-cell>
+            {{ company.contract_email }}
+          </td>
         </ng-container>
 
         <ng-container matColumnDef="contract_phone">
-          <th *matHeaderCellDef mat-header-cell> Company Contract Phone</th>
-          <td *matCellDef="let company" mat-cell> {{company.contract_phone}} </td>
+          <th *matHeaderCellDef mat-header-cell>Company Contract Phone</th>
+          <td *matCellDef="let company" mat-cell>
+            {{ company.contract_phone }}
+          </td>
         </ng-container>
 
         <ng-container matColumnDef="actions">
-          <th *matHeaderCellDef mat-header-cell> Actions</th>
-          <mat-cell *matCellDef="let company">
-            <div *ngIf="!company.is_deleted" class="ActionBtnContent ">
-              <a
-                [routerLink]="['edit', company.id]"
-                class="OutlineBtn OutLineBtnYellow"
-                color="primary"
-                matTooltip="Edit Contract"
-              >
-                <mat-icon>create</mat-icon>
-              </a
-              >&nbsp;
+          <th *matHeaderCellDef mat-header-cell>Actions</th>
+          <mat-cell *matCellDef="let companyId">
+            <!-- <div *ngIf="!company.is_deleted" class="ActionBtnContent "> -->
+            <a
+              [routerLink]="['edit']"
+              class="OutlineBtn OutLineBtnYellow"
+              color="primary"
+              matTooltip="Edit Contract"
+            >
+              <mat-icon>create</mat-icon> </a
+            >&nbsp;
 
-              <button
-                (click)="deleteCompany(company)"
-                class="OutlineBtn OutLineRed"
-                matTooltip="Delete Company"
-                type="button"
-              >
-                <mat-icon>delete</mat-icon>
-
-              </button>
-            </div>
+            <a
+              (click)="openDialogForDelete(companyId)"
+              class="OutlineBtn OutLineRed"
+              color="primary"
+              matTooltip="Delete Company"
+            >
+              <mat-icon>delete</mat-icon> </a
+            >&nbsp;
+            <!-- </div> -->
           </mat-cell>
         </ng-container>
         <!--        <ng-container matColumnDef="symbol">-->
@@ -99,15 +101,15 @@
         <!--        </ng-container>-->
 
         <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
-        <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns" mat-row></tr>
       </table>
 
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                     aria-label="Select page of periodic elements"
-                     showFirstLastButtons>
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 20]"
+        aria-label="Select page of periodic elements"
+        showFirstLastButtons
+      >
       </mat-paginator>
     </div>
-
   </div>
 </div>
-

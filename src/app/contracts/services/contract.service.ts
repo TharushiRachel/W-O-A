@@ -12,4 +12,8 @@ export class ContractService {
     save(contract: Contract): Observable<any> {
 		return this.http.post<any>('/api/contract', contract);
 	}
+
+    delete(contractId: number): Observable<any> {
+		return this.http.delete(`/api/contract/${contractId}`);
+	}
 }

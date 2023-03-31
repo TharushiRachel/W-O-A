@@ -1,4 +1,12 @@
-import { Component, OnInit, Output, ViewChild, EventEmitter, NgModule, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  ViewChild,
+  EventEmitter,
+  NgModule,
+  Input,
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -45,10 +53,7 @@ export class UsersListComponent implements OnInit {
 
   // userId = window.localStorage['userId'];
 
-  constructor(
-    private dialog: MatDialog,
-    private userService: UserService
-  ) {}
+  constructor(private dialog: MatDialog, private userService: UserService) {}
 
   ngOnInit(): void {
     // this.userId = window.localStorage['userId'];
@@ -59,55 +64,50 @@ export class UsersListComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-
-  OpenDialog(enteranimation: any, exitanimation: any,code:any) {
-
+  OpenDialog(enteranimation: any, exitanimation: any, code: any) {
     this.dialog.open(ViewUsersComponent, {
       enterAnimationDuration: enteranimation,
       exitAnimationDuration: exitanimation,
-      width: "50%",
-      height: "80%",
-      data:{
-        empcode:code
-      }
-    })
+      width: '50%',
+      height: '80%',
+      data: {
+        empcode: code,
+      },
+    });
   }
 
-  OpenDialogForEdit(enteranimation: any, exitanimation: any,code:any) {
-
+  OpenDialogForEdit(enteranimation: any, exitanimation: any, code: any) {
     this.dialog.open(EditUsersComponent, {
       enterAnimationDuration: enteranimation,
       exitAnimationDuration: exitanimation,
-      width: "50%",
-      height: "80%",
-      data:{
-        empcode:code
-      }
-    })
+      width: '50%',
+      height: '80%',
+      data: {
+        empcode: code,
+      },
+    });
   }
 
   deleteUser(userId: any) {
-    this.userService.delete(userId)
-    .subscribe(data => {
-      this.users = this.users.filter(item => item.id ! == userId);
-      console.log('User deleted')
-    })
-    
+    this.userService.delete(userId).subscribe((data) => {
+      this.users = this.users.filter((item) => item.id! == userId);
+      console.log('User deleted');
+    });
   }
 
-  openDialogForDelete(userId:any) {
+  openDialogForDelete(userId: any) {
     const dialogRef = this.dialog.open(DeleteConfirmationComponent, {
-      data:{
-          message: 'Do you want to delete the user?'
-      }
-      });
-     
-    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
-        if (confirmed) {
-            this.deleteUser(userId);
-        }
+      data: {
+        message: 'Do you want to delete the user?',
+      },
     });
-} 
+
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+        this.deleteUser(userId);
+      }
+    });
+  }
 
   // deleteUser(userId: any){
   //   if(confirm('Are you sure you want to deleter user')){
