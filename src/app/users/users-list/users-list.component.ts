@@ -96,7 +96,11 @@ export class UsersListComponent implements OnInit {
   }
 
   openDialogForDelete(userId:any) {
-    const dialogRef = this.dialog.open(DeleteConfirmationComponent);
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent, {
+      data:{
+          message: 'Do you want to delete the user?'
+      }
+      });
      
     dialogRef.afterClosed().subscribe((confirmed: boolean) => {
         if (confirmed) {

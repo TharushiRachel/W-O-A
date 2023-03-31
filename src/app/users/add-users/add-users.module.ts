@@ -15,6 +15,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -34,7 +35,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
     MatDialogModule,
     MatSelectModule,
     ReactiveFormsModule,
-    MatDatepickerModule
+    MatDatepickerModule,
   ],
   })
   export class AddUsersModule {

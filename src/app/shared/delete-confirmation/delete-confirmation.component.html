@@ -1,11 +1,13 @@
-<h5>Are You Sure?</h5>
+<div class="delete-dialog-box">
+<h5 class="title-sec">Are You Sure?</h5>
     
 <mat-dialog-content>
     <p>{{message}}</p>
 </mat-dialog-content>
     
 <mat-dialog-actions align="center">
-    <button mat-raised-button color="primary" (click)="onConfirmClick()" tabindex="1">{{confirmButtonText}}</button>
-    <button mat-raised-button mat-dialog-close tabindex="-1">{{cancelButtonText}}</button>
+    <button mat-raised-button class="confirm-btn" (click)="onConfirmClick()" tabindex="1">{{confirmButtonText}}</button>
+    <button mat-raised-button class="cancel-btn" mat-dialog-close tabindex="-1">{{cancelButtonText}}</button>
 </mat-dialog-actions>
 
+</div>

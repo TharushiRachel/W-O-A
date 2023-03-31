@@ -22,6 +22,14 @@
     </mat-form-field>
   </div>
 
+  <!-- <mbsc-select [data]="myData" display="anchored"  [filter]="true" label="Countries" [itemTemplate]="itemTemp" labelStyle="stacked" inputStyle="box" placeholder="Please select..."></mbsc-select>
+    <ng-template #itemTemp let-item>
+        <div class="md-country-picker-item">
+            <img class="md-country-picker-flag" [src]="'https://img.mobiscroll.com/demos/flags/' + item.data.value + '.png'" />
+            {{item.display}}
+        </div>
+    </ng-template> -->
+
   <div class="form-container">
     <mat-form-field class="feild-sec split-feild" appearance="outline">
       <mat-label>Create Password</mat-label>
@@ -34,21 +42,24 @@
     </mat-form-field>
   </div>
 
-  <mat-form-field class="feild-sec  split-feild" appearance="outline">
-    <mat-label>Date of Birth</mat-label>
-    <input matInput [matDatepicker]="dob">
-    <mat-datepicker-toggle matIconSuffix [for]="dob"></mat-datepicker-toggle>
-    <mat-datepicker #dob></mat-datepicker>
-<!--    <input matInput formControlName="dob" />-->
-  </mat-form-field>
 
-  <mat-form-field class="feild-sec" appearance="outline">
-    <mat-label>Gender</mat-label>
-    <mat-select formControlName="gender">
-      <mat-option value="english">Male</mat-option>
-      <mat-option value="dutch">Female</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <div class="form-container">
+    <mat-form-field class="feild-sec  split-feild" appearance="outline">  
+      <mat-label>Date of Birth</mat-label>  
+      <input matInput [matDatepicker]="dob" formControlName="dob">  
+      <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>  
+      <mat-datepicker #dob></mat-datepicker>  
+    </mat-form-field>  
+
+
+    <mat-form-field class="feild-sec" appearance="outline">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option value="english">Male</mat-option>
+        <mat-option value="dutch">Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+</div>
 
   <div class="contact-sec">
     <p>Contact Details</p>

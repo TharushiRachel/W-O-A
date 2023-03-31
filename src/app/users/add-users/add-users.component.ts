@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {Country} from '@angular-material-extensions/select-country'; 
+
+
+
+
 
 @Component({
   selector: 'app-add-users',
@@ -8,9 +13,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AddUsersComponent implements OnInit {
 
+  myData: any;
+
   constructor() { }
 
   ngOnInit(): void {
+   
   }
 
   Reactiveform = new FormGroup({
@@ -35,4 +43,7 @@ export class AddUsersComponent implements OnInit {
     }
   }
 
+  onCountrySelected(country: Country) {
+    console.log(country);
+  }
 }

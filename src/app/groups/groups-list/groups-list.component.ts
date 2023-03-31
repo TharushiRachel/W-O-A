@@ -13,6 +13,7 @@ import { AddGroupsComponent } from '../add-groups/add-groups.component';
 import { Router } from '@angular/router';
 import { Group } from '../models/group.model';
 import { GroupService } from '../services';
+import { DeleteConfirmationComponent } from 'src/app/shared/delete-confirmation/delete-confirmation.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,6 +29,8 @@ export class GroupsListComponent implements OnInit {
 
   @Output()
   delete = new EventEmitter<any>();
+
+  groups: Group[]=[];
 
   displayedColumns: string[] = [
     'id',
@@ -71,9 +74,9 @@ export class GroupsListComponent implements OnInit {
   //   })
   // }
 
-  deleteGroup(groupId: any) {
-    this.delete.emit(groupId);
-  }
+  // deleteGroup(groupId: any) {
+  //   this.delete.emit(groupId);
+  // }
 
   OpenDialog(enteranimation: any, exitanimation: any, code: any) {
     this.dialog.open(AddGroupsComponent, {
@@ -86,9 +89,28 @@ export class GroupsListComponent implements OnInit {
     });
   }
 
-  // addGroup(){
-  //   this.router.navigate(['add-groups']);
-  // }
+  deleteGroup(groupId: any) {
+    this.groupService.delete(groupId)
+    .subscribe(data => {
+      this.groups = this.groups.filter(item => item.id ! == groupId);
+      console.log('Group deleted')
+    })
+    
+  }
+
+  openDialogForDelete(groupId:any) {
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent, {
+      data:{
+          message: 'Do you want to delete the group?'
+      }
+      });
+     
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+        if (confirmed) {
+            this.deleteGroup(groupId);
+        }
+    });
+} 
 }
 
 export interface GroupsElement {

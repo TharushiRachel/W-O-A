@@ -24,8 +24,8 @@ export class GroupService{
 	// 	return this.http.put<any>(`/api/group/${groupId}`, group);
 	// }
 
-	// delete(groupId: number): Observable<any> {
-	// 	return this.http.delete(`/api/group/${groupId}`);
-	// }
+	delete(groupId: number): Observable<any> {
+		return this.http.delete(`/api/group/${groupId}`);
+	}
 
 }

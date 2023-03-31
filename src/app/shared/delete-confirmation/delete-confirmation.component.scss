@@ -1,0 +1,26 @@
+.delete-dialog-box{
+    display: inline-block;
+    width: 300px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-sec{
+    text-align: left;
+}
+
+.confirm-btn{
+    padding: 5px 15px 5px 15px;
+    border-color: #AC9D16 !important;
+    background-color: #AC9D16;
+    margin-right: 20px;
+    border-style: none !important;
+}
+
+.cancel-btn{
+    padding: 5px 15px 5px 15px;
+    border-color: none;
+    // background-color: #ffffff;
+    margin-right: 20px;
+}
