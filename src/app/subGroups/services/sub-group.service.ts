@@ -12,4 +12,8 @@ export class SubGroupService{
     save(subGroup: SubGroup): Observable<any> {
 		return this.http.post<any>('/api/sub-group', subGroup);
 	}
+
+    delete(subGroupId: number): Observable<any> {
+		return this.http.delete(`/api/sub-group/${subGroupId}`);
+	}
 }

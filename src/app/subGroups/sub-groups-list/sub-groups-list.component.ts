@@ -5,6 +5,9 @@ import {MatTableDataSource} from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddSubGroupComponent } from '../add-sub-group/add-sub-group.component';
 import { EditSubGroupsComponent } from '../edit-sub-groups/edit-sub-groups.component';
+import { SubGroup } from '../models';
+import { SubGroupService } from '../services';
+import { DeleteConfirmationComponent } from 'src/app/shared/delete-confirmation/delete-confirmation.component';
 
 
 @Component({
@@ -21,8 +24,7 @@ export class SubGroupsListComponent {
 
   constructor(
     private dialog: MatDialog,
-    // private fb: FormBuilder,
-    // private groupServise: GroupService
+    private subGroupService: SubGroupService
     ) { }
 
   @Output()
@@ -30,6 +32,8 @@ export class SubGroupsListComponent {
 
   displayedColumns: string[] = ['id', 'name', 'groups', 'contact', 'phone', 'email', 'actions'];
   dataSource = new MatTableDataSource<SubGroupsElement>(ELEMENT_DATA);
+
+  subGroups: SubGroup[] =[];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -42,9 +46,9 @@ export class SubGroupsListComponent {
     this.dataSource.paginator = this.paginator;
   }
 
-  deleteSubGroup(subGroupId: any) {
-    this.delete.emit(subGroupId);
-  }
+  // deleteSubGroup(subGroupId: any) {
+  //   this.delete.emit(subGroupId);
+  // }
 
   OpenDialog(enteranimation: any, exitanimation: any,code:any) {
 
@@ -57,6 +61,29 @@ export class SubGroupsListComponent {
       }
     })
   }
+
+  deleteSubGroup(subGroupId: any) {
+    this.subGroupService.delete(subGroupId)
+    .subscribe(data => {
+      this.subGroups = this.subGroups.filter(item => item.id ! == subGroupId);
+      console.log('Subgroup deleted')
+    })
+    
+  }
+
+  openDialogForDelete(subGroupId:any) {
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent, {
+      data:{
+          message: 'Do you want to delete the subgroup?'
+      }
+      });
+     
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+        if (confirmed) {
+            this.deleteSubGroup(subGroupId);
+        }
+    });
+} 
 }
 
 export interface SubGroupsElement {

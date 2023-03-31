@@ -5,6 +5,9 @@ import {MatTableDataSource} from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { EditProvidersComponent } from '../edit-providers/edit-providers.component';
 import { Router } from '@angular/router';
+import { Provider } from '../models';
+import { ProviderService } from '../services';
+import { DeleteConfirmationComponent } from 'src/app/shared/delete-confirmation/delete-confirmation.component';
 
 
 @Component({
@@ -25,7 +28,12 @@ export class ProvidersListComponent implements OnInit{
   displayedColumns: string[] = ['id', 'name', 'groups', 'country', 'subgroups', 'actions'];
   dataSource = new MatTableDataSource<ProvidersElement>(ELEMENT_DATA);
 
-  constructor(private dialog: MatDialog, private router:Router){
+  providers: Provider[] =[];
+
+  constructor(
+    private dialog: MatDialog, 
+    private router:Router,
+    private providerService: ProviderService){
 
   }
 
@@ -39,9 +47,9 @@ export class ProvidersListComponent implements OnInit{
     this.dataSource.paginator = this.paginator;
   }
 
-  deleteProvider(subGroupId: any) {
-    this.delete.emit(subGroupId);
-  }
+  // deleteProvider(subGroupId: any) {
+  //   this.delete.emit(subGroupId);
+  // }
 
   OpenDialog(enteranimation: any, exitanimation: any,code:any) {
 
@@ -55,6 +63,29 @@ export class ProvidersListComponent implements OnInit{
       }
     })
   }
+
+  deleteProvider(providerId: any) {
+    this.providerService.delete(providerId)
+    .subscribe(data => {
+      this.providers = this.providers.filter(item => item.id ! == providerId);
+      console.log('Provider deleted')
+    })
+    
+  }
+
+  openDialogForDelete(providerId:any) {
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent, {
+      data:{
+          message: 'Do you want to delete the Provider?'
+      }
+      });
+     
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+        if (confirmed) {
+            this.deleteProvider(providerId);
+        }
+    });
+} 
 }
 
 export interface ProvidersElement {
