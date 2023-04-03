@@ -19,6 +19,7 @@ import { ModalsModule, WidgetsModule } from '../resources/partials';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 import { EditGroupsComponent } from './edit-groups/edit-groups.component';
+import { ViewGroupsComponent } from './view-groups/view-groups.component';
 // import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
@@ -26,7 +27,8 @@ import { EditGroupsComponent } from './edit-groups/edit-groups.component';
     AddGroupsComponent,
     GroupsListComponent,
     SearchGroupsFormComponent,
-    EditGroupsComponent
+    EditGroupsComponent,
+    ViewGroupsComponent
   ],
   imports: [
     CommonModule,

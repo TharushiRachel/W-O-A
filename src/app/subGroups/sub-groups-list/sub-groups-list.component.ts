@@ -8,6 +8,7 @@ import { EditSubGroupsComponent } from '../edit-sub-groups/edit-sub-groups.compo
 import { SubGroup } from '../models';
 import { SubGroupService } from '../services';
 import { DeleteConfirmationComponent } from 'src/app/shared/delete-confirmation/delete-confirmation.component';
+import { ViewSubGroupsComponent } from '../view-sub-groups/view-sub-groups.component';
 
 
 @Component({
@@ -84,6 +85,18 @@ export class SubGroupsListComponent {
         }
     });
 } 
+
+OpenDialogForView(enteranimation: any, exitanimation: any, code: any) {
+  this.dialog.open(ViewSubGroupsComponent, {
+    enterAnimationDuration: enteranimation,
+    exitAnimationDuration: exitanimation,
+    width: '50%',
+    height: '80%',
+    data: {
+      empcode: code,
+    },
+  });
+}
 }
 
 export interface SubGroupsElement {

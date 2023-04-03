@@ -66,6 +66,16 @@
           <th *matHeaderCellDef mat-header-cell> Actions</th>
           <td mat-cell *matCellDef="let subGroupId">
             <div class="ActionBtnContent ">
+
+              <a
+                (click)="OpenDialogForView('1000ms', '500ms', '')"
+                class="OutlineBtn OutLineBtnYellow"
+                color="primary"
+                matTooltip="View User"
+              >
+                <mat-icon>visibility</mat-icon> </a
+              >&nbsp;
+              
               <a
               (click)="OpenDialog('1000ms','500ms','')"
                 class="OutlineBtn OutLineBtnYellow"

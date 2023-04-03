@@ -19,6 +19,7 @@ import { SubGroupsListComponent } from './sub-groups-list/sub-groups-list.compon
 import { SearchSubGroupsFormComponent } from './search-sub-groups-form/search-sub-groups-form.component';
 import { EditSubGroupsComponent } from './edit-sub-groups/edit-sub-groups.component';
 import { SubGroupRoutingModule } from './sub-group-routing.module';
+import { ViewSubGroupsComponent } from './view-sub-groups/view-sub-groups.component';
 
 // import { NgxSpinnerModule } from "ngx-spinner";
 
@@ -27,7 +28,8 @@ import { SubGroupRoutingModule } from './sub-group-routing.module';
     AddSubGroupComponent,
     SubGroupsListComponent,
     SearchSubGroupsFormComponent,
-    EditSubGroupsComponent
+    EditSubGroupsComponent,
+    ViewSubGroupsComponent
   ],
   imports: [
     CommonModule,

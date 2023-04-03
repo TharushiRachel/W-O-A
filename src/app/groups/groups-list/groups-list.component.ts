@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 import { Group } from '../models/group.model';
 import { GroupService } from '../services';
 import { DeleteConfirmationComponent } from 'src/app/shared/delete-confirmation/delete-confirmation.component';
+import { ViewGroupsComponent } from '../view-groups/view-groups.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -107,6 +108,18 @@ export class GroupsListComponent implements OnInit {
       if (confirmed) {
         this.deleteGroup(groupId);
       }
+    });
+  }
+
+  OpenDialogForView(enteranimation: any, exitanimation: any, code: any) {
+    this.dialog.open(ViewGroupsComponent, {
+      enterAnimationDuration: enteranimation,
+      exitAnimationDuration: exitanimation,
+      width: '50%',
+      height: '80%',
+      data: {
+        empcode: code,
+      },
     });
   }
 }

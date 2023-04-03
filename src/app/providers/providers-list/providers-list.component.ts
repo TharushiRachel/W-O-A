@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { Provider } from '../models';
 import { ProviderService } from '../services';
 import { DeleteConfirmationComponent } from 'src/app/shared/delete-confirmation/delete-confirmation.component';
+import { ViewProvidersComponent } from '../view-providers/view-providers.component';
 
 
 @Component({
@@ -86,6 +87,18 @@ export class ProvidersListComponent implements OnInit{
         }
     });
 } 
+
+OpenDialogForView(enteranimation: any, exitanimation: any, code: any) {
+  this.dialog.open(ViewProvidersComponent, {
+    enterAnimationDuration: enteranimation,
+    exitAnimationDuration: exitanimation,
+    width: '50%',
+    height: '80%',
+    data: {
+      empcode: code,
+    },
+  });
+}
 }
 
 export interface ProvidersElement {

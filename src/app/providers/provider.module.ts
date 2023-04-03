@@ -19,6 +19,7 @@ import { ProvidersListComponent } from './providers-list/providers-list.componen
 import { SearchProvidersFormComponent } from './search-providers-form/search-providers-form.component';
 import { EditProvidersComponent } from './edit-providers/edit-providers.component';
 import { ProviderRoutingModule } from './provider-routing.module';
+import { ViewProvidersComponent } from './view-providers/view-providers.component';
 // import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ProviderRoutingModule } from './provider-routing.module';
     AddProvidersComponent,
     ProvidersListComponent,
     SearchProvidersFormComponent,
-    EditProvidersComponent
+    EditProvidersComponent,
+    ViewProvidersComponent
   ],
   imports: [
     CommonModule,
