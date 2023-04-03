@@ -1,71 +1,80 @@
 .form-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.view-box {
+  background-color: white;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.lable-name {
+  // padding: 0 200px 0 25px;
+  width: 150px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.lable-sec {
+  display: flex;
+  align-items: left;
+  padding: 20px 0px 20px 70px;
+}
+
+.title-sec {
+  text-align: left;
+  padding: 35px 270px 35px 85px;
+  text-transform: uppercase;
+  font-size: 23px;
+  font-weight: 500;
+  margin-left: 178px;
+  color: #0047ab;
+  text-align: center;
+}
+
+.data-sec {
+  font-size: 15px;
+  padding-top: 3px;
+}
+
+.mat-dialog-container {
+  overflow-x: hidden;
+}
+
+.feild-sec {
+  display: block;
+  width: 55%;
+}
+
+.value-sec {
+  display: flex;
+}
+
+.mat-icon {
+  font-size: 20px;
+}
+
+.mat-form-field {
+  font-size: 0.54rem;
+
+  input {
+    font-size: 1rem;
   }
 
-  .view-box{
-    background-color: white;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+  label.mat-form-field-label {
+    font-size: 1rem;
+    top: 1.45em;
   }
 
-  .lable-name{
-    padding: 0 200px 0 25px;
-    width: 150px;
-    font-weight: 600;
-    font-size: 15px;
+  &.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
+  &.mat-form-field-can-float
+    .mat-input-server:focus
+    + .mat-form-field-label-wrapper
+    .mat-form-field-label {
+    transform: translateY(-1.5em) scale(0.75);
+    width: 133.33333%;
   }
-
-  .lable-sec{
-    display: flex;
-    align-items: center;
-    padding: 20px 50px 20px 145px;
-  }
-
-  .title-sec{
-    text-align: left;
-      padding: 35px 270px 35px 85px;
-      text-transform: uppercase;
-      font-size: 23px;
-      font-weight: 500;
-      margin-left: 178px;
-      color: #0047AB;
-      text-align: center;
-    }
-
-    .data-sec{
-        font-size: 15px;
-        padding-top: 3px;
-    }
-
-    .mat-dialog-container{
-        overflow-x: hidden;
-      }
-      
-
-// .section1{
-// 	background-color:white;
-// 	width:50%;
-// 	float:left;
-// 	height:100vh;
-// 	// border-right: 1vw solid #F5E5D6; 
-//     box-sizing: border-box;
-//     margin:0;
-//     padding:0;	
-// }
-// .section2{
-// 	background-color:#f1c40f;
-// 	width:50%;
-// 	float:left;
-// 	height:100vh;
-// 	margin:0;
-// 	padding:0;
-//   box-sizing: border-box;
-// }
-
-// .section{
-//     width: 1000px;
-//     background-color: white;
-// }
+}
